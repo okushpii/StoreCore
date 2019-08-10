@@ -1,7 +1,7 @@
 package com.soft.storecore.controller;
 
 import com.soft.storecore.facade.CategoryFacade;
-import com.soft.storecore.model.entity.Category;
+import com.soft.storecore.facade.data.CategoryData;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -19,24 +19,25 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class HomePageControllerTest {
 
+    private static final String CATEGORIES_ATTRIBUTE = "categories";
+    private static final String HOME_PAGE = "pages/homePage";
+
     @InjectMocks
     private HomePageController testedEntry;
 
     @Mock
     private CategoryFacade categoryFacade;
     @Mock
-    private Category category;
-    @Mock
     private Model model;
 
     @Test
     public void shouldGetHomePage(){
-        List<Category> categories = Collections.singletonList(category);
+        List<CategoryData> categories = Collections.singletonList(new CategoryData());
         when(categoryFacade.findAll()).thenReturn(categories);
         String result = testedEntry.homePage(model);
 
-        verify(model).addAttribute("categories", categories);
-        assertEquals("pages/homePage", result);
+        verify(model).addAttribute(CATEGORIES_ATTRIBUTE, categories);
+        assertEquals(HOME_PAGE, result);
     }
 
 }
