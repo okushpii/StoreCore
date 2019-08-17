@@ -51,42 +51,20 @@
 
     <nav class="navbar navbar-expand-lg navbar navbar-light bg-light">
         <div class="collapse navbar-collapse">
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown dropdown-hover">
-                    <a class="nav-link" href="#">
-                        Category 1
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Sub category 1</a>
-                        <a class="dropdown-item" href="#">Sub category 2</a>
-                        <a class="dropdown-item" href="#">Sub category 3</a>
-                    </div>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown dropdown-hover">
-                    <a class="nav-link" href="#">
-                        Category 2
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Sub category 1</a>
-                        <a class="dropdown-item" href="#">Sub category 2</a>
-                    </div>
-                </li>
-            </ul>
-            <ul class="navbar-nav">
-                <li class="nav-item dropdown dropdown-hover">
-                    <a class="nav-link" href="#">
-                        Category 3
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Sub category 1</a>
-                        <a class="dropdown-item" href="#">Sub category 2</a>
-                        <a class="dropdown-item" href="#">Sub category 3</a>
-                        <a class="dropdown-item" href="#">Sub category 4</a>
-                    </div>
-                </li>
-            </ul>
+            <c:forEach items="${categories}" var="category">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown dropdown-hover">
+                        <a class="nav-link" href="#">
+                                ${category.name}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <c:forEach items="${category.childCategories}" var="childCategory">
+                                <a class="dropdown-item" href="#">${childCategory.name}</a>
+                            </c:forEach>
+                        </div>
+                    </li>
+                </ul>
+            </c:forEach>
         </div>
     </nav>
 </header>
