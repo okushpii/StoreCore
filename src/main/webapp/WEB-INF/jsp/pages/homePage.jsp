@@ -1,25 +1,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
-<head>
-
-</head>
+<%@include file="/WEB-INF/jsp/fragments/common/head.jsp" %>
+<%@include file="/WEB-INF/jsp/fragments/common/header.jsp" %>
 <body>
-<div>
-    <h1>Test</h1>
-    <ul>
-    <c:forEach items="${categories}" var="category">
-        <li>
-            <p>${category.name}</p>
-            <ul>
-            <c:forEach items="${category.childCategories}" var="childCategory">
-                <li>
-                    <p>${childCategory.name}</p>
-                </li>
-            </c:forEach>
-            </ul>
-        </li>
-    </c:forEach>
-    </ul>
-</div>
+<%@include file="/WEB-INF/jsp/fragments/template/homePageTemplate.jsp" %>
+<%@include file="/WEB-INF/jsp/fragments/common/footer.jsp" %>
 </body>
+<%@include file="/WEB-INF/jsp/fragments/common/scripts.jsp" %>
 </html>
