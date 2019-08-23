@@ -8,6 +8,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import java.util.Collections;
 import java.util.List;
@@ -31,7 +32,7 @@ public class HomePageControllerTest {
     private Model model;
 
     @Test
-    public void shouldGetHomePage(){
+    public void shouldGetHomePage() {
         List<CategoryData> categories = Collections.singletonList(new CategoryData());
         when(categoryFacade.findAll()).thenReturn(categories);
         String result = testedEntry.homePage(model);

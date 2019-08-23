@@ -1,6 +1,7 @@
 package com.soft.storecore.facade.data;
 
 import com.soft.storecore.model.entity.Category;
+import com.soft.storecore.model.entity.Product;
 
 import java.util.List;
 
