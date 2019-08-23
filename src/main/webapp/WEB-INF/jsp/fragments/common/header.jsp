@@ -60,7 +60,8 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <c:forEach items="${category.childCategories}" var="childCategory">
-                                <a class="dropdown-item" href="#">${childCategory.name}</a>
+                                <c:url var="productListUrl" value = "/productList/${childCategory.id}"/>
+                                <a class="dropdown-item" href= "${productListUrl}">${childCategory.name}</a>
                             </c:forEach>
                         </div>
                     </li>

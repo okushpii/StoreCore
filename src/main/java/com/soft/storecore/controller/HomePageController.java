@@ -17,6 +17,7 @@ public class HomePageController {
     @Resource
     private CategoryFacade categoryFacade;
 
+
     @GetMapping
     public String homePage(Model model){
         model.addAttribute(Attributes.CATEGORIES, categoryFacade.findAll());

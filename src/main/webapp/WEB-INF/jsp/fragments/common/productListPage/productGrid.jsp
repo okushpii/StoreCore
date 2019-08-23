@@ -9,15 +9,9 @@
 
 <div class="row">
 
-    <%@include file="../product/productTile.jsp"%>
-    <%@include file="../product/productTile.jsp"%>
-    <%@include file="../product/productTile.jsp"%>
-    <%@include file="../product/productTile.jsp"%>
-    <%@include file="../product/productTile.jsp"%>
-    <%@include file="../product/productTile.jsp"%>
-    <%@include file="../product/productTile.jsp"%>
-    <%@include file="../product/productTile.jsp"%>
-    <%@include file="../product/productTile.jsp"%>
+    <c:forEach items="${productList}" var="product">
+        <%@include file="../product/productTile.jsp" %>
+    </c:forEach>
 
 </div>
 <!-- /.row -->
