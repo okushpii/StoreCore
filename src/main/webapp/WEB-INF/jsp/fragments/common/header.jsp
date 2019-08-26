@@ -11,7 +11,8 @@
 <header class="sticky-top">
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
         <div class="">
-            <a class="navbar-brand" href="#">
+            <c:url var="homePageUrl" value="/"/>
+            <a class="navbar-brand" href="${homePageUrl}">
                 <img src="<c:url value="/resources/img/bootstrap-solid.svg"/>" width="30" height="30"
                      class="d-inline-block align-top" alt="">
                 Bootstrap
@@ -53,15 +54,17 @@
     <nav class="navbar navbar-expand-lg navbar navbar-light bg-light">
         <div class="collapse navbar-collapse">
             <c:forEach items="${categories}" var="category">
+                <c:url var="productListUrl" value = "/productList"/>
                 <ul class="navbar-nav">
                     <li class="nav-item dropdown dropdown-hover">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="${productListUrl}/${category.id}">
                                 ${category.name}
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <c:forEach items="${category.childCategories}" var="childCategory">
-                                <c:url var="productListUrl" value = "/productList/${childCategory.id}"/>
-                                <a class="dropdown-item" href= "${productListUrl}">${childCategory.name}</a>
+                                <a class="dropdown-item" href= "${productListUrl}/${childCategory.id}">
+                                        ${childCategory.name}
+                                </a>
                             </c:forEach>
                         </div>
                     </li>
