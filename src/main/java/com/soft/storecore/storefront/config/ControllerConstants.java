@@ -1,4 +1,4 @@
-package com.soft.storecore.controller;
+package com.soft.storecore.storefront.config;
 
 public interface ControllerConstants {
 

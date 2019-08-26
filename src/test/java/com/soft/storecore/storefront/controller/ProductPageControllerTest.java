@@ -1,4 +1,4 @@
-package com.soft.storecore.controller;
+package com.soft.storecore.storefront.controller;
 
 import com.soft.storecore.facade.ProductFacade;
 import com.soft.storecore.facade.data.ProductData;
