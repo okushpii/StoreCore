@@ -7,4 +7,6 @@ import java.util.List;
 public interface CategoryDao {
 
     List<Category> findAll();
+
+    Category findById(Long categoryId);
 }

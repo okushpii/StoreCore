@@ -20,4 +20,9 @@ public class DefaultCategoryDao implements CategoryDao {
     public List<Category> findAll() {
         return sessionProvider.getSession().createQuery(FIND_ALL_QUERY, Category.class).list();
     }
+
+    @Override
+    public Category findById(Long categoryId) {
+        return sessionProvider.getSession().load(Category.class, categoryId);
+    }
 }
