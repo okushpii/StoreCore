@@ -19,12 +19,12 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public class CategoriesInterceptorTest {
+public class HeaderAttributesInterceptorTest {
 
     private static final String CATEGORIES_ATTRIBUTE = "categories";
 
     @InjectMocks
-    private CategoriesInterceptor testedInstance;
+    private HeaderAttributesInterceptor testedInstance;
 
     @Mock
     private HttpServletRequest request;
@@ -40,6 +40,13 @@ public class CategoriesInterceptorTest {
         when(request.getMethod()).thenReturn(RequestMethod.GET.name());
         categories = Collections.singletonList(new CategoryData());
         when(categoryFacade.findAll()).thenReturn(categories);
+    }
+
+    @Test
+    public void shouldNotHandleIfModelAndViewIsNull(){
+        testedInstance.postHandle(request, null, null, null);
+
+        verify(modelAndView, never()).addObject(any());
     }
 
     @Test

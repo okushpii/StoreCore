@@ -11,11 +11,12 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
+import java.util.Objects;
 
 import static com.soft.storecore.storefront.config.ControllerConstants.Attributes.CATEGORIES;
 
 @Component
-public class CategoriesInterceptor extends HandlerInterceptorAdapter {
+public class HeaderAttributesInterceptor extends HandlerInterceptorAdapter {
 
     @Resource
     private CategoryFacade categoryFacade;
@@ -24,7 +25,7 @@ public class CategoriesInterceptor extends HandlerInterceptorAdapter {
     public void postHandle(HttpServletRequest request, HttpServletResponse response,
                            Object handler, ModelAndView modelAndView) {
 
-       if (isRequestMethodGet(request)){
+       if (isRequestMethodGet(request) && Objects.nonNull(modelAndView)){
            addCategoriesAttribute(modelAndView);
        }
     }
