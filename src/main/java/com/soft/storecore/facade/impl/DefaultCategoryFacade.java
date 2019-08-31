@@ -1,10 +1,10 @@
 package com.soft.storecore.facade.impl;
 
+import com.soft.storecore.core.entity.Category;
+import com.soft.storecore.core.service.CategoryService;
 import com.soft.storecore.facade.CategoryFacade;
 import com.soft.storecore.facade.converter.Converter;
 import com.soft.storecore.facade.data.CategoryData;
-import com.soft.storecore.model.entity.Category;
-import com.soft.storecore.model.service.CategoryService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

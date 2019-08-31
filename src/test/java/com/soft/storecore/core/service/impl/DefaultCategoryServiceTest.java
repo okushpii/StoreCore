@@ -1,7 +1,7 @@
-package com.soft.storecore.model.service.impl;
+package com.soft.storecore.core.service.impl;
 
-import com.soft.storecore.model.dao.CategoryDao;
-import com.soft.storecore.model.entity.Category;
+import com.soft.storecore.core.dao.CategoryDao;
+import com.soft.storecore.core.entity.Category;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

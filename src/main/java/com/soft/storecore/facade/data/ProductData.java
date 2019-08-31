@@ -1,6 +1,6 @@
 package com.soft.storecore.facade.data;
 
-import com.soft.storecore.model.entity.Category;
+import com.soft.storecore.core.entity.Category;
 
 public class ProductData {
 

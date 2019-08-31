@@ -1,4 +1,4 @@
-package com.soft.storecore.model.dao.util;
+package com.soft.storecore.core.dao.util;
 
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;

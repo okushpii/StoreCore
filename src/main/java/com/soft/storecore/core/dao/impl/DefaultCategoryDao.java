@@ -1,8 +1,8 @@
-package com.soft.storecore.model.dao.impl;
+package com.soft.storecore.core.dao.impl;
 
-import com.soft.storecore.model.dao.CategoryDao;
-import com.soft.storecore.model.dao.util.SessionProvider;
-import com.soft.storecore.model.entity.Category;
+import com.soft.storecore.core.dao.CategoryDao;
+import com.soft.storecore.core.dao.util.SessionProvider;
+import com.soft.storecore.core.entity.Category;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;

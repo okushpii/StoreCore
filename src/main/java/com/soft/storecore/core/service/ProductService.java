@@ -1,6 +1,6 @@
-package com.soft.storecore.model.service;
+package com.soft.storecore.core.service;
 
-import com.soft.storecore.model.entity.Product;
+import com.soft.storecore.core.entity.Product;
 
 import java.util.List;
 

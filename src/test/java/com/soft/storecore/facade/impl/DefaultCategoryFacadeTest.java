@@ -1,9 +1,9 @@
 package com.soft.storecore.facade.impl;
 
+import com.soft.storecore.core.entity.Category;
+import com.soft.storecore.core.service.CategoryService;
 import com.soft.storecore.facade.converter.impl.CategoryConverter;
 import com.soft.storecore.facade.data.CategoryData;
-import com.soft.storecore.model.entity.Category;
-import com.soft.storecore.model.service.CategoryService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

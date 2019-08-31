@@ -1,6 +1,6 @@
-package com.soft.storecore.model.dao;
+package com.soft.storecore.core.dao;
 
-import com.soft.storecore.model.entity.Category;
+import com.soft.storecore.core.entity.Category;
 
 import java.util.List;
 

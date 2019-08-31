@@ -1,4 +1,4 @@
-package com.soft.storecore.model.entity;
+package com.soft.storecore.core.entity;
 
 import javax.persistence.*;
 
