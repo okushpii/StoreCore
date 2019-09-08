@@ -1,8 +1,9 @@
-package com.soft.storecore.facade.populator;
+package com.soft.storecore.facade.core.populator;
 
 import com.soft.storecore.core.entity.Category;
 import com.soft.storecore.core.entity.Product;
-import com.soft.storecore.facade.data.ProductData;
+import com.soft.storecore.facade.product.data.ProductData;
+import com.soft.storecore.facade.product.populator.ProductPopulator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

@@ -1,8 +1,9 @@
-package com.soft.storecore.facade.converter.impl;
+package com.soft.storecore.facade.core.converter.impl;
 
 import com.soft.storecore.core.entity.Category;
-import com.soft.storecore.facade.data.CategoryData;
-import com.soft.storecore.facade.populator.CategoryPopulator;
+import com.soft.storecore.facade.category.converter.CategoryConverter;
+import com.soft.storecore.facade.category.data.CategoryData;
+import com.soft.storecore.facade.category.populator.CategoryPopulator;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

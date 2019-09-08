@@ -1,4 +1,4 @@
-package com.soft.storecore.facade.converter;
+package com.soft.storecore.facade.core.converter;
 
 public interface Converter<SOURCE, TARGET> {
 

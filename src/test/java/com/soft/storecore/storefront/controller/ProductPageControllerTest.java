@@ -1,7 +1,7 @@
 package com.soft.storecore.storefront.controller;
 
-import com.soft.storecore.facade.ProductFacade;
-import com.soft.storecore.facade.data.ProductData;
+import com.soft.storecore.facade.product.data.ProductData;
+import com.soft.storecore.facade.product.facade.ProductFacade;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

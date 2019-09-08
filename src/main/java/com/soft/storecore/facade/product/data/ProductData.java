@@ -1,4 +1,4 @@
-package com.soft.storecore.facade.data;
+package com.soft.storecore.facade.product.data;
 
 import com.soft.storecore.core.entity.Category;
 

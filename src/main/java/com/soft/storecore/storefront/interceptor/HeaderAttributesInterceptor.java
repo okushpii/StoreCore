@@ -1,7 +1,7 @@
 package com.soft.storecore.storefront.interceptor;
 
-import com.soft.storecore.facade.CategoryFacade;
-import com.soft.storecore.facade.data.CategoryData;
+import com.soft.storecore.facade.category.data.CategoryData;
+import com.soft.storecore.facade.category.facade.CategoryFacade;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;

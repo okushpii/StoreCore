@@ -1,6 +1,6 @@
-package com.soft.storecore.facade;
+package com.soft.storecore.facade.product.facade;
 
-import com.soft.storecore.facade.data.ProductData;
+import com.soft.storecore.facade.product.data.ProductData;
 
 import java.util.List;
 

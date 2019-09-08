@@ -2,8 +2,9 @@ package com.soft.storecore.facade.impl;
 
 import com.soft.storecore.core.entity.Product;
 import com.soft.storecore.core.service.ProductService;
-import com.soft.storecore.facade.converter.impl.ProductConverter;
-import com.soft.storecore.facade.data.ProductData;
+import com.soft.storecore.facade.product.converter.ProductConverter;
+import com.soft.storecore.facade.product.data.ProductData;
+import com.soft.storecore.facade.product.facade.DefaultProductFacade;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

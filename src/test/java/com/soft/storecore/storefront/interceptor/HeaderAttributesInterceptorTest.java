@@ -1,7 +1,7 @@
 package com.soft.storecore.storefront.interceptor;
 
-import com.soft.storecore.facade.CategoryFacade;
-import com.soft.storecore.facade.data.CategoryData;
+import com.soft.storecore.facade.category.data.CategoryData;
+import com.soft.storecore.facade.category.facade.CategoryFacade;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

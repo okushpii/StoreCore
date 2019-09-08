@@ -1,10 +1,9 @@
-package com.soft.storecore.facade.impl;
+package com.soft.storecore.facade.product.facade;
 
 import com.soft.storecore.core.entity.Product;
 import com.soft.storecore.core.service.ProductService;
-import com.soft.storecore.facade.ProductFacade;
-import com.soft.storecore.facade.converter.Converter;
-import com.soft.storecore.facade.data.ProductData;
+import com.soft.storecore.facade.core.converter.Converter;
+import com.soft.storecore.facade.product.data.ProductData;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;

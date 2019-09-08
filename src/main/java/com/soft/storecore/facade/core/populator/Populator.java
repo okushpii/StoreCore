@@ -1,4 +1,4 @@
-package com.soft.storecore.facade.populator;
+package com.soft.storecore.facade.core.populator;
 
 public interface Populator<SOURCE, TARGET> {
 

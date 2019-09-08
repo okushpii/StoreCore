@@ -1,7 +1,7 @@
 package com.soft.storecore.storefront.controller;
 
 
-import com.soft.storecore.facade.ProductFacade;
+import com.soft.storecore.facade.product.facade.ProductFacade;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
