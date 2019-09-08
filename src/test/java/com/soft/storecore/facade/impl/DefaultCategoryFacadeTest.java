@@ -1,7 +1,7 @@
 package com.soft.storecore.facade.impl;
 
-import com.soft.storecore.core.entity.Category;
-import com.soft.storecore.core.service.CategoryService;
+import com.soft.storecore.core.category.entity.Category;
+import com.soft.storecore.core.category.service.CategoryService;
 import com.soft.storecore.facade.category.converter.CategoryConverter;
 import com.soft.storecore.facade.category.data.CategoryData;
 import com.soft.storecore.facade.category.facade.DefaultCategoryFacade;

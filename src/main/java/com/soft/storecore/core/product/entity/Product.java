@@ -1,15 +1,42 @@
-package com.soft.storecore.facade.product.data;
+package com.soft.storecore.core.product.entity;
 
 import com.soft.storecore.core.category.entity.Category;
 
-public class ProductData {
+import javax.persistence.*;
 
+@Entity
+public class Product {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column
     private String name;
+
+    @Column
+    private Long quantity;
+
+    @Column
     private Long price;
+
+    @Column
     private String imageUrl;
+
+    @Column
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
     private Category category;
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
 
     public Long getId() {
         return id;
@@ -25,6 +52,14 @@ public class ProductData {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Long getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Long quantity) {
+        this.quantity = quantity;
     }
 
     public Long getPrice() {
@@ -49,13 +84,5 @@ public class ProductData {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public Category getCategory() {
-        return category;
-    }
-
-    public void setCategory(Category category) {
-        this.category = category;
     }
 }

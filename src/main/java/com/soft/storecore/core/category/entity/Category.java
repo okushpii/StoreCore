@@ -1,15 +1,29 @@
-package com.soft.storecore.facade.category.data;
+package com.soft.storecore.core.category.entity;
 
-import com.soft.storecore.core.category.entity.Category;
+import com.soft.storecore.core.product.entity.Product;
 
+import javax.persistence.*;
 import java.util.List;
 
-public class CategoryData {
+@Entity
+public class Category{
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column
     private String name;
+
+    @ManyToOne
+    @JoinColumn
     private Category superCategory;
+
+    @OneToMany(mappedBy = "superCategory")
     private List<Category> childCategories;
+
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 
     public Long getId() {
         return id;
@@ -41,5 +55,13 @@ public class CategoryData {
 
     public void setChildCategories(List<Category> childCategories) {
         this.childCategories = childCategories;
+    }
+
+    public List<Product> getProducts() {
+        return products;
+    }
+
+    public void setProducts(List<Product> products) {
+        this.products = products;
     }
 }

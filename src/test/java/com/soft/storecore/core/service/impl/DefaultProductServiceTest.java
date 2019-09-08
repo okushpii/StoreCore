@@ -1,9 +1,10 @@
 package com.soft.storecore.core.service.impl;
 
-import com.soft.storecore.core.dao.ProductDao;
-import com.soft.storecore.core.entity.Category;
-import com.soft.storecore.core.entity.Product;
-import com.soft.storecore.core.service.CategoryService;
+import com.soft.storecore.core.category.entity.Category;
+import com.soft.storecore.core.category.service.CategoryService;
+import com.soft.storecore.core.product.dao.ProductDao;
+import com.soft.storecore.core.product.entity.Product;
+import com.soft.storecore.core.product.service.DefaultProductService;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;

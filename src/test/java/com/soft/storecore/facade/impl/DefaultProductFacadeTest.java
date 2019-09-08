@@ -1,7 +1,7 @@
 package com.soft.storecore.facade.impl;
 
-import com.soft.storecore.core.entity.Product;
-import com.soft.storecore.core.service.ProductService;
+import com.soft.storecore.core.product.entity.Product;
+import com.soft.storecore.core.product.service.ProductService;
 import com.soft.storecore.facade.product.converter.ProductConverter;
 import com.soft.storecore.facade.product.data.ProductData;
 import com.soft.storecore.facade.product.facade.DefaultProductFacade;

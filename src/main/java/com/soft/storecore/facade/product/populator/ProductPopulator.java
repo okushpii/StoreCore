@@ -1,8 +1,8 @@
 package com.soft.storecore.facade.product.populator;
 
-import com.soft.storecore.core.entity.Product;
-import com.soft.storecore.facade.core.populator.Populator;
+import com.soft.storecore.core.product.entity.Product;
 import com.soft.storecore.facade.product.data.ProductData;
+import com.soft.storecore.facade.util.populator.Populator;
 import org.springframework.stereotype.Component;
 
 @Component
