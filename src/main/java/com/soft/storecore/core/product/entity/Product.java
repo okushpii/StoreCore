@@ -3,6 +3,7 @@ package com.soft.storecore.core.product.entity;
 import com.soft.storecore.core.category.entity.Category;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Entity
 public class Product {
@@ -25,6 +26,9 @@ public class Product {
 
     @Column
     private String description;
+
+    @Column
+    private LocalDateTime placementDate;
 
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
@@ -84,5 +88,13 @@ public class Product {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public LocalDateTime getPlacementDate() {
+        return placementDate;
+    }
+
+    public void setPlacementDate(LocalDateTime placementDate) {
+        this.placementDate = placementDate;
     }
 }

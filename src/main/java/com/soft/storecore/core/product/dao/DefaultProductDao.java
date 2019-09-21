@@ -17,7 +17,19 @@ public class DefaultProductDao implements ProductDao {
 
     @Override
     public List<Product> findAllByCategoryId(Long categoryId) {
-       return sessionProvider.getSession().createQuery(FIND_ALL_BY_CATEGORY_QUERY, Product.class)
-               .setParameter("category", categoryId).list();
+        return sessionProvider.getSession().createQuery(FIND_ALL_BY_CATEGORY_QUERY, Product.class)
+                .setParameter("category", categoryId).list();
+    }
+
+    @Override
+    public List<Product> findAllByCategoryId(Long categoryId, Sorting sorting) {
+        String result = FIND_ALL_BY_CATEGORY_QUERY + getSortingQuery(sorting);
+
+        return sessionProvider.getSession().createQuery(result, Product.class)
+                .setParameter("category", categoryId).list();
+    }
+
+    private String getSortingQuery(Sorting sorting){
+        return "ORDER BY p." + sorting.getSortingField().name() + sorting.getSortingType().name();
     }
 }

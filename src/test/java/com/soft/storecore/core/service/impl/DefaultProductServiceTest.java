@@ -4,6 +4,7 @@ import com.soft.storecore.core.category.entity.Category;
 import com.soft.storecore.core.category.service.CategoryService;
 import com.soft.storecore.core.product.dao.ProductDao;
 import com.soft.storecore.core.product.entity.Product;
+import com.soft.storecore.core.pojo.Sorting;
 import com.soft.storecore.core.product.service.DefaultProductService;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,6 +37,8 @@ public class DefaultProductServiceTest {
     private Category category;
     @Mock
     private Category childCategory;
+    @Mock
+    private Sorting sorting;
 
     @Before
     public void setUp(){
@@ -48,9 +51,9 @@ public class DefaultProductServiceTest {
         List<Product> expectedProducts = Collections.singletonList(product);
 
         when(category.getChildCategories()).thenReturn(Collections.emptyList());
-        when(productDao.findAllByCategoryId(CATEGORY_ID)).thenReturn(expectedProducts);
+        when(productDao.findAllByCategoryId(CATEGORY_ID, sorting)).thenReturn(expectedProducts);
 
-        List<Product> products = testedEntry.findAllByCategoryId(CATEGORY_ID);
+        List<Product> products = testedEntry.findAllByCategoryId(CATEGORY_ID, sorting);
         assertEquals(expectedProducts, products);
     }
 
@@ -59,9 +62,9 @@ public class DefaultProductServiceTest {
         List<Product> expectedProducts = Collections.singletonList(product);
 
         when(category.getChildCategories()).thenReturn(Collections.singletonList(childCategory));
-        when(productDao.findAllByCategoryId(CHILD_CATEGORY_ID)).thenReturn(expectedProducts);
+        when(productDao.findAllByCategoryId(CHILD_CATEGORY_ID, sorting)).thenReturn(expectedProducts);
 
-        List<Product> products = testedEntry.findAllByCategoryId(CATEGORY_ID);
+        List<Product> products = testedEntry.findAllByCategoryId(CATEGORY_ID, sorting);
         assertEquals(expectedProducts, products);
     }
 }
