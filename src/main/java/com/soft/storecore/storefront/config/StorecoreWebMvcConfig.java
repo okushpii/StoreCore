@@ -7,8 +7,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import javax.annotation.Resource;
 
-import static com.soft.storecore.storefront.config.ControllerConstants.RequestMappings.HOME_PAGE;
-import static com.soft.storecore.storefront.config.ControllerConstants.RequestMappings.PRODUCT_LIST;
+import static com.soft.storecore.storefront.config.StorefrontConstants.RequestMappings.HOME_PAGE;
+import static com.soft.storecore.storefront.config.StorefrontConstants.RequestMappings.PRODUCT_LIST;
 
 @Configuration
 public class StorecoreWebMvcConfig implements WebMvcConfigurer {

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.Resource;
 
-import static com.soft.storecore.storefront.config.ControllerConstants.*;
+import static com.soft.storecore.storefront.config.StorefrontConstants.*;
 
 @Controller
 @RequestMapping(RequestMappings.PRODUCT_LIST)

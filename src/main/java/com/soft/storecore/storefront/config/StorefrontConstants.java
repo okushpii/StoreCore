@@ -1,6 +1,6 @@
 package com.soft.storecore.storefront.config;
 
-public interface ControllerConstants {
+public interface StorefrontConstants {
 
     interface RequestMappings {
 

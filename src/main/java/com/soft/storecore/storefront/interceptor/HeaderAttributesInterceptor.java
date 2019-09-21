@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Objects;
 
-import static com.soft.storecore.storefront.config.ControllerConstants.Attributes.CATEGORIES;
+import static com.soft.storecore.storefront.config.StorefrontConstants.Attributes.CATEGORIES;
 
 @Component
 public class HeaderAttributesInterceptor extends HandlerInterceptorAdapter {

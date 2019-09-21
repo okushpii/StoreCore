@@ -5,8 +5,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import static com.soft.storecore.storefront.config.ControllerConstants.Pages;
-import static com.soft.storecore.storefront.config.ControllerConstants.RequestMappings;
+import static com.soft.storecore.storefront.config.StorefrontConstants.Pages;
+import static com.soft.storecore.storefront.config.StorefrontConstants.RequestMappings;
 
 @Controller
 @RequestMapping(RequestMappings.HOME_PAGE)
