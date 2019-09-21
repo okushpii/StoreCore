@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan(value = "com.soft.storecore")
-@EntityScan(value = "com.soft.config.util.entity")
+@EntityScan(value = "com.soft.storecore.core")
 public class StoreCoreApplication {
 
 	public static void main(String[] args) {
