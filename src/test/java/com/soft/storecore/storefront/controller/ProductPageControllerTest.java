@@ -14,6 +14,7 @@ import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -35,8 +36,8 @@ public class ProductPageControllerTest {
     @Test
     public void shouldGetProductPage() {
         List<ProductData> productList = Collections.singletonList(new ProductData());
-        when(productFacade.findAllByCategoryId(anyLong())).thenReturn(productList);
-        String result = testedEntry.getProductsPage(anyLong(), model);
+        when(productFacade.findAllByCategoryId(anyLong(), anyString(), anyString())).thenReturn(productList);
+        String result = testedEntry.getProductsPage(anyLong(), model, anyString(), anyString());
 
         verify(model).addAttribute(PRODUCT_LIST_ATTRIBUTE, productList);
         assertEquals(PRODUCT_LIST_PAGE, result);

@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
 
@@ -20,8 +21,13 @@ public class ProductListPageController {
     private ProductFacade productFacade;
 
     @GetMapping("{id}")
-    public String getProductsPage(@PathVariable  Long id, Model model) {
-        model.addAttribute(Attributes.PRODUCT_LIST, productFacade.findAllByCategoryId(id));
+    public String getProductsPage(@PathVariable  Long id, Model model,
+                                  @RequestParam(required = false) String sortingField,
+                                  @RequestParam(required = false) String sortingType) {
+
+        model.addAttribute(Attributes.PRODUCT_LIST, productFacade
+                .findAllByCategoryId(id, sortingField, sortingType));
+
         return Pages.PRODUCT_LIST_PAGE;
     }
 }
