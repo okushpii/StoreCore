@@ -18,5 +18,8 @@ public interface StorefrontConstants {
 
         String CATEGORIES = "categories";
         String PRODUCT_LIST = "productList";
+        String CATEGORY_ID = "categoryId";
+        String SORTING_FIELD = "sortingField";
+        String SORTING_TYPE = "sortingType";
     }
 }

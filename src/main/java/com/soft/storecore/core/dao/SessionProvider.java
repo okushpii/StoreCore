@@ -1,4 +1,4 @@
-package com.soft.storecore.core.util;
+package com.soft.storecore.core.dao;
 
 import org.hibernate.Session;
 

@@ -2,7 +2,8 @@ package com.soft.storecore.facade.product.facade;
 
 import com.soft.storecore.core.product.entity.Product;
 import com.soft.storecore.core.product.service.ProductService;
-import com.soft.storecore.core.service.SortingService;
+import com.soft.storecore.core.sorting.SortingService;
+import com.soft.storecore.core.sorting.pojo.SortingData;
 import com.soft.storecore.facade.product.data.ProductData;
 import com.soft.storecore.facade.util.converter.Converter;
 import org.springframework.stereotype.Component;
@@ -25,9 +26,9 @@ public class DefaultProductFacade implements ProductFacade {
 
     @Override
     public List<ProductData> findAllByCategoryId(Long categoryId, String sortingFieldKey, String sortingTypeFieldKey) {
-        return sortingService.getSorting(sortingFieldKey, sortingTypeFieldKey)
-                .map(s -> productService.findAllByCategoryId(categoryId, s))
-                .orElse(productService.findAllByCategoryId(categoryId))
+        SortingData sortingData = sortingService.getSorting(sortingFieldKey, sortingTypeFieldKey);
+
+        return productService.findAllByCategoryId(categoryId, sortingData)
                 .stream().map(p -> productConverter.convert(p))
                 .collect(Collectors.toList());
     }

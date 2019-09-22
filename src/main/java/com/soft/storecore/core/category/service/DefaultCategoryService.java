@@ -17,9 +17,4 @@ public class DefaultCategoryService implements CategoryService {
     public List<Category> findAll() {
         return categoryDao.findAll();
     }
-
-    @Override
-    public Category findById(Long categoryId) {
-        return categoryDao.findById(categoryId);
-    }
 }
