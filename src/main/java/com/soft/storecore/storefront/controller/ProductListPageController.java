@@ -20,14 +20,18 @@ public class ProductListPageController {
     @Resource
     private ProductFacade productFacade;
 
-    @GetMapping("{id}")
-    public String getProductsPage(@PathVariable  Long id, Model model,
-                                  @RequestParam(required = false) String sortingField,
-                                  @RequestParam(required = false) String sortingType) {
+    @GetMapping("{categoryId}")
+    public String getProductsPage(@PathVariable  Long categoryId, Model model,
+                                  @RequestParam(required = false, defaultValue = "placementDate")
+                                          String sortingField,
+                                  @RequestParam(required = false, defaultValue = "asc"
+                                  ) String sortingType) {
 
         model.addAttribute(Attributes.PRODUCT_LIST, productFacade
-                .findAllByCategoryId(id, sortingField, sortingType));
-
+                .findAllByCategoryId(categoryId, sortingField, sortingType));
+        model.addAttribute(Attributes.CATEGORY_ID, categoryId);
+        model.addAttribute(Attributes.SORTING_FIELD, sortingField);
+        model.addAttribute(Attributes.SORTING_TYPE, sortingType);
         return Pages.PRODUCT_LIST_PAGE;
     }
 }

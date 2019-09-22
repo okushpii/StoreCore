@@ -1,4 +1,4 @@
-package com.soft.storecore.core.service.impl;
+package com.soft.storecore.core.sorting.impl;
 
 import com.soft.storecore.core.category.dao.CategoryDao;
 import com.soft.storecore.core.category.entity.Category;
@@ -34,5 +34,4 @@ public class DefaultCategoryServiceTest {
 
         assertEquals(categories, result);
     }
-
 }

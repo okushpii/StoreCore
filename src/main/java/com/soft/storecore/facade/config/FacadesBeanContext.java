@@ -1,7 +1,7 @@
-package com.soft.storecore.core.config;
+package com.soft.storecore.facade.config;
 
-import com.soft.storecore.core.pojo.SortingField;
-import com.soft.storecore.core.pojo.SortingType;
+import com.soft.storecore.core.sorting.pojo.SortingField;
+import com.soft.storecore.core.sorting.pojo.SortingType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -9,12 +9,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class BeanContext {
+public class FacadesBeanContext {
 
     @Bean
     public Map<String, SortingField> sortingFieldMap(){
         Map<String, SortingField> sortingFieldMap = new HashMap<>();
         sortingFieldMap.put("price", SortingField.PRICE);
+        sortingFieldMap.put("placementDate", SortingField.PLACEMENT_DATE);
         return sortingFieldMap;
     }
 
@@ -25,4 +26,5 @@ public class BeanContext {
         sortingTypeMap.put("desc", SortingType.DESC);
         return sortingTypeMap;
     }
+
 }

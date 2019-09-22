@@ -1,7 +1,9 @@
 package com.soft.storecore.core.product.dao;
 
+import com.soft.storecore.core.dao.QueryBuilder;
+import com.soft.storecore.core.dao.SessionProvider;
 import com.soft.storecore.core.product.entity.Product;
-import com.soft.storecore.core.util.SessionProvider;
+import com.soft.storecore.core.sorting.pojo.SortingData;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -10,26 +12,18 @@ import java.util.List;
 @Repository
 public class DefaultProductDao implements ProductDao {
 
-    private static final String FIND_ALL_BY_CATEGORY_QUERY = "SELECT p FROM Product p WHERE p.category.id = :category ";
+    private static final String FIND_ALL_BY_CATEGORY_QUERY = "SELECT p FROM Product p JOIN p.category c" +
+            " WHERE c.id = :category OR  c.superCategory.id = :category";
 
     @Resource
     private SessionProvider sessionProvider;
+    @Resource
+    private QueryBuilder<SortingData> sortingQueryBuilder;
 
     @Override
-    public List<Product> findAllByCategoryId(Long categoryId) {
-        return sessionProvider.getSession().createQuery(FIND_ALL_BY_CATEGORY_QUERY, Product.class)
+    public List<Product> findAllByCategoryId(Long categoryId, SortingData sortingData) {
+        String resultQuery = sortingQueryBuilder.buildQuery(FIND_ALL_BY_CATEGORY_QUERY, sortingData);
+        return sessionProvider.getSession().createQuery(resultQuery, Product.class)
                 .setParameter("category", categoryId).list();
-    }
-
-    @Override
-    public List<Product> findAllByCategoryId(Long categoryId, Sorting sorting) {
-        String result = FIND_ALL_BY_CATEGORY_QUERY + getSortingQuery(sorting);
-
-        return sessionProvider.getSession().createQuery(result, Product.class)
-                .setParameter("category", categoryId).list();
-    }
-
-    private String getSortingQuery(Sorting sorting){
-        return "ORDER BY p." + sorting.getSortingField().name() + sorting.getSortingType().name();
     }
 }
