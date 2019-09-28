@@ -2,6 +2,7 @@ package com.soft.storecore.storefront.controller;
 
 
 import com.soft.storecore.facade.product.facade.ProductFacade;
+import com.soft.storecore.storefront.breadcrumb.facade.BreadcrumbFacade;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,8 @@ public class ProductListPageController {
 
     @Resource
     private ProductFacade productFacade;
+    @Resource
+    private BreadcrumbFacade categoryBreadcrumbFacade;
 
     @GetMapping("{categoryId}")
     public String getProductsPage(@PathVariable  Long categoryId, Model model,
@@ -32,6 +35,7 @@ public class ProductListPageController {
         model.addAttribute(Attributes.CATEGORY_ID, categoryId);
         model.addAttribute(Attributes.SORTING_FIELD, sortingField);
         model.addAttribute(Attributes.SORTING_TYPE, sortingType);
+        model.addAttribute(Attributes.BREADCRUMBS, categoryBreadcrumbFacade.getBreadcrumbs(categoryId));
         return Pages.PRODUCT_LIST_PAGE;
     }
 }

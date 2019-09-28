@@ -7,4 +7,6 @@ import java.util.List;
 public interface CategoryFacade {
 
     List<CategoryData> findAll();
+
+    List<CategoryData> findSupercategories(Long categoryId);
 }
