@@ -34,13 +34,12 @@ public class DefaultCategoryFacadeTest {
     @Test
     public void shouldFindAll(){
         List<Category> categories = Collections.singletonList(category);
-        CategoryData categoryData = new CategoryData();
+        List<CategoryData> categoryDataList = Collections.singletonList(new CategoryData());
 
         when(categoryService.findAll()).thenReturn(categories);
-        when(categoryConverter.convert(category)).thenReturn(categoryData);
+        when(categoryConverter.convertAll(categories)).thenReturn(categoryDataList);
         List<CategoryData> result = testedEntry.findAll();
 
-        assertArrayEquals(Collections.singletonList(categoryData).toArray(), result.toArray());
+        assertArrayEquals(categoryDataList.toArray(), result.toArray());
     }
-
 }

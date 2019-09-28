@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class DefaultProductFacade implements ProductFacade {
@@ -27,9 +26,7 @@ public class DefaultProductFacade implements ProductFacade {
     @Override
     public List<ProductData> findAllByCategoryId(Long categoryId, String sortingFieldKey, String sortingTypeFieldKey) {
         SortingData sortingData = sortingService.getSorting(sortingFieldKey, sortingTypeFieldKey);
-
-        return productService.findAllByCategoryId(categoryId, sortingData)
-                .stream().map(p -> productConverter.convert(p))
-                .collect(Collectors.toList());
+        return productConverter.convertAll(productService
+                .findAllByCategoryId(categoryId, sortingData));
     }
 }

@@ -42,15 +42,15 @@ public class DefaultProductFacadeTest {
     @Test
     public void shouldFindAllByCategoryId(){
         List<Product> productList = Collections.singletonList(product);
-        ProductData productData = new ProductData();
+        List<ProductData> productDataList = Collections.singletonList(new ProductData());
 
         when(productService.findAllByCategoryId(CATEGORY_ID, sortingData)).thenReturn(productList);
-        when(productConverter.convert(product)).thenReturn(productData);
+        when(productConverter.convertAll(productList)).thenReturn(productDataList);
         when(sortingService.getSorting(anyString(), anyString())).thenReturn(sortingData);
         List<ProductData> result = testedEntry.findAllByCategoryId(CATEGORY_ID, "price"
                 , "asc");
 
-        assertArrayEquals(Collections.singletonList(productData).toArray(), result.toArray());
+        assertArrayEquals(productDataList.toArray(), result.toArray());
 
     }
 }

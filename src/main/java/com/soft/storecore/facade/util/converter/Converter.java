@@ -1,6 +1,8 @@
 package com.soft.storecore.facade.util.converter;
 
-public interface Converter<SOURCE, TARGET> {
+import java.util.List;
 
-    TARGET convert(SOURCE source);
+public interface Converter<SOURCE, TARGET> extends BaseConverter<SOURCE, TARGET> {
+
+    List<TARGET> convertAll(List<SOURCE> sourceList);
 }

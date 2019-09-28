@@ -8,7 +8,6 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Component
 public class DefaultCategoryFacade implements CategoryFacade {
@@ -21,8 +20,6 @@ public class DefaultCategoryFacade implements CategoryFacade {
 
     @Override
     public List<CategoryData> findAll() {
-        return categoryService.findAll().stream()
-                .map(c -> categoryConverter.convert(c))
-                .collect(Collectors.toList());
+        return categoryConverter.convertAll(categoryService.findAll());
     }
 }
