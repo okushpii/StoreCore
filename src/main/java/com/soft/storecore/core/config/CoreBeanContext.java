@@ -1,15 +1,24 @@
 package com.soft.storecore.core.config;
 
+import com.soft.storecore.core.config.strategy.ConfigurationFetchingStrategy;
 import com.soft.storecore.core.sorting.pojo.SortingField;
 import com.soft.storecore.core.sorting.pojo.SortingType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import javax.annotation.Resource;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Configuration
 public class CoreBeanContext {
+
+    @Resource
+    private ConfigurationFetchingStrategy databaseConfigurationFetchingStrategy;
+    @Resource
+    private ConfigurationFetchingStrategy propertiesConfigurationFetchingStrategy;
 
     @Bean
     public Map<SortingField, String> daoSortingFieldMap(){
@@ -25,5 +34,13 @@ public class CoreBeanContext {
         map.put(SortingType.ASC, "ASC");
         map.put(SortingType.DESC, "DESC");
         return map;
+    }
+
+    @Bean
+    public List<ConfigurationFetchingStrategy> configurationFetchingStrategies(){
+        List<ConfigurationFetchingStrategy> strategies = new ArrayList<>();
+        strategies.add(databaseConfigurationFetchingStrategy);
+        strategies.add(propertiesConfigurationFetchingStrategy);
+        return strategies;
     }
 }
