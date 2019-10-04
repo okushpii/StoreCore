@@ -1,7 +1,7 @@
 package com.soft.storecore.core.product.dao;
 
-import com.soft.storecore.core.dao.QueryBuilder;
-import com.soft.storecore.core.dao.SessionProvider;
+import com.soft.storecore.core.common.dao.QueryBuilder;
+import com.soft.storecore.core.common.dao.SessionProvider;
 import com.soft.storecore.core.product.entity.Product;
 import com.soft.storecore.core.sorting.pojo.SortingData;
 import org.springframework.stereotype.Repository;

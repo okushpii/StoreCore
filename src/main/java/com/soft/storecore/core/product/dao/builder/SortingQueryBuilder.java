@@ -1,6 +1,6 @@
 package com.soft.storecore.core.product.dao.builder;
 
-import com.soft.storecore.core.dao.QueryBuilder;
+import com.soft.storecore.core.common.dao.QueryBuilder;
 import com.soft.storecore.core.sorting.pojo.SortingData;
 import com.soft.storecore.core.sorting.pojo.SortingField;
 import com.soft.storecore.core.sorting.pojo.SortingType;

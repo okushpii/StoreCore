@@ -1,8 +1,8 @@
 package com.soft.storecore.core.config.dao.impl;
 
+import com.soft.storecore.core.common.dao.SessionProvider;
 import com.soft.storecore.core.config.dao.ConfigurationDao;
 import com.soft.storecore.core.config.entity.Configuration;
-import com.soft.storecore.core.dao.SessionProvider;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;

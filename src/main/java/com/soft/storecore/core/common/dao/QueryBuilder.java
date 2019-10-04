@@ -1,4 +1,4 @@
-package com.soft.storecore.core.dao;
+package com.soft.storecore.core.common.dao;
 
 public interface QueryBuilder<SOURCE> {
 
