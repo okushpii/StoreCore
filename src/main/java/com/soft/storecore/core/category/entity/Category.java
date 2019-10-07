@@ -1,16 +1,13 @@
 package com.soft.storecore.core.category.entity;
 
+import com.soft.storecore.core.common.entity.BaseEntity;
 import com.soft.storecore.core.product.entity.Product;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
-public class Category{
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Category extends BaseEntity {
 
     @Column
     private String name;
@@ -24,14 +21,6 @@ public class Category{
 
     @OneToMany(mappedBy = "category")
     private List<Product> products;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

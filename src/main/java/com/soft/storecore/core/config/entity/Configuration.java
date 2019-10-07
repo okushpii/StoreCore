@@ -1,15 +1,13 @@
 package com.soft.storecore.core.config.entity;
 
+import com.soft.storecore.core.common.entity.BaseEntity;
 import org.hibernate.annotations.NaturalId;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
 
 @Entity
-public class Configuration {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long pk;
+public class Configuration extends BaseEntity {
 
     @Column(name = "configKey")
     @NaturalId
@@ -20,14 +18,6 @@ public class Configuration {
 
     @Column(name = "configGroup")
     private String group;
-
-    public Long getPk() {
-        return pk;
-    }
-
-    public void setPk(Long pk) {
-        this.pk = pk;
-    }
 
     public String getKey() {
         return key;
