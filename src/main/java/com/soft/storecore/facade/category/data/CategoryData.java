@@ -6,17 +6,17 @@ import java.util.List;
 
 public class CategoryData {
 
-    private Long id;
+    private String code;
     private String name;
     private Category superCategory;
     private List<Category> childCategories;
 
-    public Long getId() {
-        return id;
+    public String getCode() {
+        return code;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getName() {

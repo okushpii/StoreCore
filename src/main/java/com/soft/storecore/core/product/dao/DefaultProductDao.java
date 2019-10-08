@@ -12,8 +12,9 @@ import java.util.List;
 @Repository
 public class DefaultProductDao implements ProductDao {
 
-    private static final String FIND_ALL_BY_CATEGORY_QUERY = "SELECT p FROM Product p JOIN p.category c" +
-            " WHERE c.id = :category OR  c.superCategory.id = :category";
+    private static final String FIND_ALL_BY_CATEGORY_QUERY = "SELECT p FROM Product p INNER JOIN p.category c" +
+            " LEFT JOIN c.superCategory sc" +
+            " WHERE c.code = :category OR sc.code = :category";
 
     @Resource
     private SessionProvider sessionProvider;
@@ -21,9 +22,9 @@ public class DefaultProductDao implements ProductDao {
     private QueryBuilder<SortingData> sortingQueryBuilder;
 
     @Override
-    public List<Product> findAllByCategoryId(Long categoryId, SortingData sortingData) {
+    public List<Product> findAllByCategory(String categoryCode, SortingData sortingData) {
         String resultQuery = sortingQueryBuilder.buildQuery(FIND_ALL_BY_CATEGORY_QUERY, sortingData);
         return sessionProvider.getSession().createQuery(resultQuery, Product.class)
-                .setParameter("category", categoryId).list();
+                .setParameter("category", categoryCode).list();
     }
 }

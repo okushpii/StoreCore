@@ -17,7 +17,7 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class CategoryPopulatorTest {
 
-    private static final long CATEGORY_ID = 10L;
+    private static final String CATEGORY_CODE = "10";
     private static final String CATEGORY_NAME = "categoryName";
 
     @InjectMocks
@@ -35,14 +35,14 @@ public class CategoryPopulatorTest {
         prepareCategory();
         testedInstance.populate(category, categoryData);
 
-        assertEquals(String.valueOf(CATEGORY_ID), categoryData.getId().toString());
+        assertEquals(CATEGORY_CODE, categoryData.getCode());
         assertEquals(CATEGORY_NAME, categoryData.getName());
         assertEquals(Collections.emptyList(), categoryData.getChildCategories());
         assertEquals(superCategory, categoryData.getSuperCategory());
     }
 
     private void prepareCategory() {
-        when(category.getId()).thenReturn(CATEGORY_ID);
+        when(category.getCode()).thenReturn(CATEGORY_CODE);
         when(category.getName()).thenReturn(CATEGORY_NAME);
         when(category.getChildCategories()).thenReturn(Collections.emptyList());
         when(category.getSuperCategory()).thenReturn(superCategory);

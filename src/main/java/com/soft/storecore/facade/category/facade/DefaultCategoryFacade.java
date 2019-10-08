@@ -26,8 +26,8 @@ public class DefaultCategoryFacade implements CategoryFacade {
     }
 
     @Override
-    public List<CategoryData> findSupercategories(Long categoryId) {
-        List<Category> categories = categoryService.findById(categoryId)
+    public List<CategoryData> findSupercategories(String categoryCode) {
+        List<Category> categories = categoryService.findById(categoryCode)
                 .map(c -> categoryService.findSupercategories(c)).orElse(Collections.emptyList());
 
         return categories.stream()

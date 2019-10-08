@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class CategoryBreadcrumbFacadeTest {
 
-    private static final long CATEGORY_ID = 23L;
+    private static final String CATEGORY_CODE = "23";
 
     @InjectMocks
     private CategoryBreadcrumbFacade testedEntry;
@@ -41,8 +41,8 @@ public class CategoryBreadcrumbFacadeTest {
         List<Breadcrumb> breadcrumbList = List.of(breadcrumb);
 
         when(categoryBreadcrumbBuilder.buildBreadcrumbs(categories)).thenReturn(breadcrumbList);
-        when(categoryFacade.findSupercategories(CATEGORY_ID)).thenReturn(categories);
-        List<Breadcrumb> result = testedEntry.getBreadcrumbs(CATEGORY_ID);
+        when(categoryFacade.findSupercategories(CATEGORY_CODE)).thenReturn(categories);
+        List<Breadcrumb> result = testedEntry.getBreadcrumbs(CATEGORY_CODE);
 
         assertEquals(breadcrumbList, result);
     }

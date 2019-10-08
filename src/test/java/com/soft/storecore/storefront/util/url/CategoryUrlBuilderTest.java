@@ -14,7 +14,7 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class CategoryUrlBuilderTest {
 
-    private static final long CATEGORY_ID = 23L;
+    private static final String CATEGORY_CODE = "23";
 
     @InjectMocks
     private CategoryUrlBuilder testedEntry;
@@ -24,9 +24,9 @@ public class CategoryUrlBuilderTest {
 
     @Test
     public void shouldBuildUrl() {
-        String expected = "/productList/" + CATEGORY_ID;
+        String expected = "/c/" + CATEGORY_CODE;
 
-        when(model.getId()).thenReturn(CATEGORY_ID);
+        when(model.getCode()).thenReturn(CATEGORY_CODE);
         String result = testedEntry.buildUrl(model);
 
         assertEquals(expected, result);

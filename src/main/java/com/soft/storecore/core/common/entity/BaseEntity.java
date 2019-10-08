@@ -11,13 +11,13 @@ public class BaseEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long pk;
 
-    public Long getId() {
-        return id;
+    public Long getPk() {
+        return pk;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setPk(Long id) {
+        this.pk = id;
     }
 }

@@ -5,7 +5,7 @@ public interface StorefrontConstants {
     interface RequestMappings {
 
         String HOME_PAGE ="/";
-        String PRODUCT_LIST = "/productList";
+        String PRODUCTS_BY_CATEGORY = "/c";
     }
 
     interface Pages {
@@ -18,7 +18,7 @@ public interface StorefrontConstants {
 
         String CATEGORIES = "categories";
         String PRODUCT_LIST = "productList";
-        String CATEGORY_ID = "categoryId";
+        String CATEGORY_CODE = "categoryCode";
         String SORTING_FIELD = "sortingField";
         String SORTING_TYPE = "sortingType";
         String BREADCRUMBS = "breadcrumbs";

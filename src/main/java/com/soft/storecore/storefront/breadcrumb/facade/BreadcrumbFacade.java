@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface BreadcrumbFacade {
 
-    List<Breadcrumb> getBreadcrumbs(Long categoryId);
+    List<Breadcrumb> getBreadcrumbs(String categoryCode);
 }

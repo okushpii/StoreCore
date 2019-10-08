@@ -39,7 +39,7 @@
             </c:choose>
         </a>
 
-        <c:url var="findProductsWithSorting" value="/productList/${categoryId}/"/>
+        <c:url var="findProductsWithSorting" value="/c/${categoryCode}/"/>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
             <c:url var="placementDateAscSortingUrl" value="${findProductsWithSorting}">

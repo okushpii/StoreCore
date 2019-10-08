@@ -16,7 +16,7 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class ProductPopulatorTest {
 
-    private static final long PRODUCT_ID = 10L;
+    private static final String PRODUCT_CODE = "10";
     private static final String PRODUCT_NAME = "productName";
     private static final long PRODUCT_PRICE = 200L;
     private static final String PRODUCT_IMAGE_URL = "productImageUrl";
@@ -37,7 +37,7 @@ public class ProductPopulatorTest {
         prepareProduct();
         testedInstance.populate(product, productData);
 
-        assertEquals(String.valueOf(PRODUCT_ID), productData.getId().toString());
+        assertEquals(PRODUCT_CODE, productData.getCode());
         assertEquals(PRODUCT_NAME, productData.getName());
         assertEquals(String.valueOf(PRODUCT_PRICE), productData.getPrice().toString());
         assertEquals(PRODUCT_IMAGE_URL, productData.getImageUrl());
@@ -46,7 +46,7 @@ public class ProductPopulatorTest {
     }
 
     private void prepareProduct() {
-        when(product.getId()).thenReturn(PRODUCT_ID);
+        when(product.getCode()).thenReturn(PRODUCT_CODE);
         when(product.getName()).thenReturn(PRODUCT_NAME);
         when(product.getPrice()).thenReturn(PRODUCT_PRICE);
         when(product.getImageUrl()).thenReturn(PRODUCT_IMAGE_URL);

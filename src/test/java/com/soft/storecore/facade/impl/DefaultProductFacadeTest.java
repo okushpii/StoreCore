@@ -23,7 +23,7 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultProductFacadeTest {
 
-    private static final long CATEGORY_ID = 12L;
+    private static final String CATEGORY_CODE = "12";
 
     @InjectMocks
     private DefaultProductFacade testedEntry;
@@ -44,10 +44,10 @@ public class DefaultProductFacadeTest {
         List<Product> productList = Collections.singletonList(product);
         List<ProductData> productDataList = Collections.singletonList(new ProductData());
 
-        when(productService.findAllByCategoryId(CATEGORY_ID, sortingData)).thenReturn(productList);
+        when(productService.findAllByCategory(CATEGORY_CODE, sortingData)).thenReturn(productList);
         when(productConverter.convertAll(productList)).thenReturn(productDataList);
         when(sortingService.getSorting(anyString(), anyString())).thenReturn(sortingData);
-        List<ProductData> result = testedEntry.findAllByCategoryId(CATEGORY_ID, "price"
+        List<ProductData> result = testedEntry.findAllByCategory(CATEGORY_CODE, "price"
                 , "asc");
 
         assertArrayEquals(productDataList.toArray(), result.toArray());

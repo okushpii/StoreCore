@@ -18,8 +18,8 @@ public class CategoryBreadcrumbFacade implements BreadcrumbFacade {
     private BreadcrumbBuilder<CategoryData> categoryBreadcrumbBuilder;
 
     @Override
-    public List<Breadcrumb> getBreadcrumbs(Long categoryId) {
-        List<CategoryData> categories = categoryFacade.findSupercategories(categoryId);
+    public List<Breadcrumb> getBreadcrumbs(String categoryCode) {
+        List<CategoryData> categories = categoryFacade.findSupercategories(categoryCode);
         return categoryBreadcrumbBuilder.buildBreadcrumbs(categories);
     }
 }

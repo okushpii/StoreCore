@@ -12,7 +12,7 @@ import java.util.Optional;
 public class DefaultCategoryDao implements CategoryDao {
 
     private static final String FIND_ALL_QUERY = "SELECT c FROM Category c WHERE c.superCategory IS NULL";
-    private static final String FIND_BY_ID_QUERY = "SELECT c FROM Category c WHERE c.id = :id";
+    private static final String FIND_BY_ID_QUERY = "SELECT c FROM Category c WHERE c.code = :code";
 
     @Resource
     private SessionProvider sessionProvider;
@@ -23,8 +23,8 @@ public class DefaultCategoryDao implements CategoryDao {
     }
 
     @Override
-    public Optional<Category> findById(Long id) {
+    public Optional<Category> findById(String code) {
         return Optional.ofNullable(sessionProvider.getSession().createQuery(FIND_BY_ID_QUERY, Category.class)
-                .setParameter("id", id).uniqueResult());
+                .setParameter("code", code).uniqueResult());
     }
 }

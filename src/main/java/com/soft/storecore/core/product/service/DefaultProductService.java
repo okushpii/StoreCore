@@ -15,8 +15,8 @@ public class DefaultProductService implements ProductService {
     private ProductDao productDao;
 
     @Override
-    public List<Product> findAllByCategoryId(Long categoryId, SortingData sortingData) {
-        return productDao.findAllByCategoryId(categoryId, sortingData);
+    public List<Product> findAllByCategory(String categoryCode, SortingData sortingData) {
+        return productDao.findAllByCategory(categoryCode, sortingData);
     }
 
 }

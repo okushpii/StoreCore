@@ -18,7 +18,7 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultProductServiceTest {
 
-    private static final long CATEGORY_ID = 23L;
+    private static final String CATEGORY_CODE = "23";
 
     @InjectMocks
     private DefaultProductService testedEntry;
@@ -30,9 +30,9 @@ public class DefaultProductServiceTest {
 
     @Test
     public void shouldFindProducts(){
-        when(productDao.findAllByCategoryId(CATEGORY_ID, null))
+        when(productDao.findAllByCategory(CATEGORY_CODE, null))
                 .thenReturn(Collections.singletonList(product));
-        List<Product> result = testedEntry.findAllByCategoryId(CATEGORY_ID, null);
+        List<Product> result = testedEntry.findAllByCategory(CATEGORY_CODE, null);
 
         assertEquals(Collections.singletonList(product), result);
     }

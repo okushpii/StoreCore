@@ -24,9 +24,9 @@ public class DefaultProductFacade implements ProductFacade {
     private SortingService sortingService;
 
     @Override
-    public List<ProductData> findAllByCategoryId(Long categoryId, String sortingFieldKey, String sortingTypeFieldKey) {
+    public List<ProductData> findAllByCategory(String categoryCode, String sortingFieldKey, String sortingTypeFieldKey) {
         SortingData sortingData = sortingService.getSorting(sortingFieldKey, sortingTypeFieldKey);
         return productConverter.convertAll(productService
-                .findAllByCategoryId(categoryId, sortingData));
+                .findAllByCategory(categoryCode, sortingData));
     }
 }

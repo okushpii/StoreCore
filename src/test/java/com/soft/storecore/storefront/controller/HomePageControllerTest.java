@@ -1,5 +1,6 @@
 package com.soft.storecore.storefront.controller;
 
+import com.soft.storecore.storefront.controller.page.HomePageController;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;

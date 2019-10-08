@@ -9,5 +9,5 @@ public interface CategoryDao {
 
     List<Category> findAll();
 
-    Optional<Category> findById(Long id);
+    Optional<Category> findById(String code);
 }

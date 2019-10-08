@@ -10,7 +10,7 @@ public class ProductPopulator implements Populator<Product, ProductData> {
 
     @Override
     public void populate(Product product, ProductData productData) {
-        productData.setId(product.getId());
+        productData.setCode(product.getCode());
         productData.setName(product.getName());
         productData.setPrice(product.getPrice());
         productData.setImageUrl(product.getImageUrl());

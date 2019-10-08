@@ -8,5 +8,5 @@ public interface CategoryFacade {
 
     List<CategoryData> findAll();
 
-    List<CategoryData> findSupercategories(Long categoryId);
+    List<CategoryData> findSupercategories(String categoryCode);
 }

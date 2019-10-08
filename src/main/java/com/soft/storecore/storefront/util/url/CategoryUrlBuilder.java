@@ -5,10 +5,10 @@ import com.soft.storecore.storefront.config.StorefrontConstants;
 import org.springframework.stereotype.Component;
 
 @Component
-public class CategoryUrlBuilder<T> implements UrlBuilder<CategoryData> {
+public class CategoryUrlBuilder implements UrlBuilder<CategoryData> {
 
     @Override
     public String buildUrl(CategoryData model) {
-        return StorefrontConstants.RequestMappings.PRODUCT_LIST + "/" + model.getId();
+        return StorefrontConstants.RequestMappings.PRODUCTS_BY_CATEGORY + "/" + model.getCode();
     }
 }

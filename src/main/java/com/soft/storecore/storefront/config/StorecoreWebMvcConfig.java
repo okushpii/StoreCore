@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import javax.annotation.Resource;
 
 import static com.soft.storecore.storefront.config.StorefrontConstants.RequestMappings.HOME_PAGE;
-import static com.soft.storecore.storefront.config.StorefrontConstants.RequestMappings.PRODUCT_LIST;
+import static com.soft.storecore.storefront.config.StorefrontConstants.RequestMappings.PRODUCTS_BY_CATEGORY;
 
 @Configuration
 public class StorecoreWebMvcConfig implements WebMvcConfigurer {
@@ -22,7 +22,7 @@ public class StorecoreWebMvcConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(headerAttributesInterceptor).addPathPatterns(
                 HOME_PAGE + ALL_MATCH_PATTERN,
-                PRODUCT_LIST + ALL_MATCH_PATTERN
+                PRODUCTS_BY_CATEGORY + ALL_MATCH_PATTERN
         );
     }
 }

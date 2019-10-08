@@ -11,5 +11,5 @@ public interface CategoryService {
 
     List<Category> findSupercategories(Category category);
 
-    Optional<Category> findById(Long id);
+    Optional<Category> findById(String code);
 }

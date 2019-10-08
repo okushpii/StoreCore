@@ -35,7 +35,7 @@ public class DefaultCategoryService implements CategoryService {
     }
 
     @Override
-    public Optional<Category> findById(Long id) {
-        return categoryDao.findById(id);
+    public Optional<Category> findById(String code) {
+        return categoryDao.findById(code);
     }
 }

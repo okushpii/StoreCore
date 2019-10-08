@@ -10,7 +10,7 @@ public class CategoryPopulator implements Populator<Category, CategoryData> {
 
     @Override
     public void populate(Category category, CategoryData categoryData) {
-        categoryData.setId(category.getId());
+        categoryData.setCode(category.getCode());
         categoryData.setName(category.getName());
         categoryData.setSuperCategory(category.getSuperCategory());
         categoryData.setChildCategories(category.getChildCategories());

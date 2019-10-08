@@ -15,14 +15,14 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
-import static junit.framework.Assert.assertEquals;
 import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultCategoryFacadeTest {
 
-    private static final long CATEGORY_ID = 12L;
+    private static final String CATEGORY_CODE = "12";
 
     @InjectMocks
     private DefaultCategoryFacade testedEntry;
@@ -63,12 +63,12 @@ public class DefaultCategoryFacadeTest {
         List<Category> categoryList = List.of(category);
         List<CategoryData> categoryDataList = Collections.singletonList(categoryData);
 
-        when(categoryService.findById(CATEGORY_ID)).thenReturn(categoryOptional);
+        when(categoryService.findById(CATEGORY_CODE)).thenReturn(categoryOptional);
         when(categoryService.findSupercategories(category)).thenReturn(categoryList);
         when(categoryConverter.convert(category)).thenReturn(categoryData);
 
 
-        List<CategoryData> result = testedEntry.findSupercategories(CATEGORY_ID);
+        List<CategoryData> result = testedEntry.findSupercategories(CATEGORY_CODE);
 
         assertEquals(categoryDataList, result);
 

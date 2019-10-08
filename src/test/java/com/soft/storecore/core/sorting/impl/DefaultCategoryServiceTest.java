@@ -20,7 +20,7 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultCategoryServiceTest {
 
-    private static final long CATEGORY_ID = 23L;
+    private static final String CATEGORY_CODE = "21";
 
     @InjectMocks
     private DefaultCategoryService testedEntry;
@@ -69,8 +69,8 @@ public class DefaultCategoryServiceTest {
     public void shouldFindById() {
         Optional<Category> expected = Optional.of(category);
 
-        when(categoryDao.findById(CATEGORY_ID)).thenReturn(expected);
-        Optional<Category> result = testedEntry.findById(CATEGORY_ID);
+        when(categoryDao.findById(CATEGORY_CODE)).thenReturn(expected);
+        Optional<Category> result = testedEntry.findById(CATEGORY_CODE);
 
         assertEquals(expected, result);
     }
