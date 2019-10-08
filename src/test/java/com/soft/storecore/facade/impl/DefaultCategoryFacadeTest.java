@@ -11,9 +11,9 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import static junit.framework.Assert.assertEquals;
 import static org.junit.Assert.assertArrayEquals;
@@ -33,6 +33,8 @@ public class DefaultCategoryFacadeTest {
     private Category category;
     @Mock
     private CategoryConverter categoryConverter;
+    @Mock
+    private CategoryData categoryData;
 
 
     @Test
@@ -49,25 +51,26 @@ public class DefaultCategoryFacadeTest {
 
     @Test
     public void shouldFindSuperCategoriesWhenAbsent() {
-       when(categoryService.findById(CATEGORY_ID)).thenReturn(null);
+        List<Category> result = categoryService.findSupercategories(category);
 
-       List<Category> result = categoryService.findSupercategories(category);
-
-       assertEquals(Collections.emptyList(), result);
+        assertEquals(Collections.emptyList(), result);
 
     }
 
     @Test
-    public void shouldFindSuperCategoriesWhenPresent(){
-        List<Category> categories = new ArrayList<>();
+    public void shouldFindSuperCategoriesWhenPresent() {
+        Optional<Category> categoryOptional = Optional.of(category);
+        List<Category> categoryList = List.of(category);
+        List<CategoryData> categoryDataList = Collections.singletonList(categoryData);
 
-        when(categoryService.findSupercategories(category)).thenReturn(categories);
+        when(categoryService.findById(CATEGORY_ID)).thenReturn(categoryOptional);
+        when(categoryService.findSupercategories(category)).thenReturn(categoryList);
+        when(categoryConverter.convert(category)).thenReturn(categoryData);
+
+
         List<CategoryData> result = testedEntry.findSupercategories(CATEGORY_ID);
 
-        assertEquals(categories, result);
-
-
-
+        assertEquals(categoryDataList, result);
 
 
     }
