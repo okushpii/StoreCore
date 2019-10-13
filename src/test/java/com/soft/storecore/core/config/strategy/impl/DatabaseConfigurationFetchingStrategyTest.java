@@ -17,6 +17,7 @@ import static org.mockito.Mockito.when;
 public class DatabaseConfigurationFetchingStrategyTest {
 
     private static final String KEY = "testKey";
+    private static final String VALUE = "testValue";
 
     @InjectMocks
     private DatabaseConfigurationFetchingStrategy testedInstance;
@@ -28,9 +29,10 @@ public class DatabaseConfigurationFetchingStrategyTest {
     @Test
     public void shouldReturnConfiguration(){
         when(configurationDao.findConfiguration(KEY)).thenReturn(Optional.of(configuration));
-        Optional<Configuration> result = testedInstance.fetchConfiguration(KEY);
+        when(configuration.getValue()).thenReturn(VALUE);
+        Optional<String> result = testedInstance.fetchConfiguration(KEY);
 
-        assertEquals(Optional.of(configuration), result);
+        assertEquals(Optional.of(VALUE), result);
     }
 
 }

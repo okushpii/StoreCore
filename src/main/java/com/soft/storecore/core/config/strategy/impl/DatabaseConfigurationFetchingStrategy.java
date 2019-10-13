@@ -15,7 +15,8 @@ public class DatabaseConfigurationFetchingStrategy implements ConfigurationFetch
     private ConfigurationDao configurationDao;
 
     @Override
-    public Optional<Configuration> fetchConfiguration(String key) {
-        return configurationDao.findConfiguration(key);
+    public Optional<String> fetchConfiguration(String key) {
+        return configurationDao.findConfiguration(key)
+                .map(Configuration::getValue);
     }
 }

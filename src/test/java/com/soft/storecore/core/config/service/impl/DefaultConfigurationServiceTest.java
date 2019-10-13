@@ -1,6 +1,5 @@
 package com.soft.storecore.core.config.service.impl;
 
-import com.soft.storecore.core.config.entity.Configuration;
 import com.soft.storecore.core.config.strategy.ConfigurationFetchingStrategy;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,6 +18,7 @@ import static org.mockito.Mockito.*;
 public class DefaultConfigurationServiceTest {
 
     private static final String CONFIGURATION_KEY = "key";
+    private static final String CONFIGURATION_VALUE = "value";
 
     @InjectMocks
     private DefaultConfigurationService testedInstance;
@@ -26,8 +26,6 @@ public class DefaultConfigurationServiceTest {
     private ConfigurationFetchingStrategy firstStrategy;
     @Mock
     private ConfigurationFetchingStrategy secondStrategy;
-    @Mock
-    private Configuration configuration;
 
     @Before
     public void setUp(){
@@ -37,25 +35,25 @@ public class DefaultConfigurationServiceTest {
 
     @Test
     public void shouldReturnFirstStrategyConfigurationWhenFound(){
-        when(firstStrategy.fetchConfiguration(CONFIGURATION_KEY)).thenReturn(Optional.of(configuration));
-        Optional<Configuration> result = testedInstance.findConfiguration(CONFIGURATION_KEY);
+        when(firstStrategy.fetchConfiguration(CONFIGURATION_KEY)).thenReturn(Optional.of(CONFIGURATION_VALUE));
+        Optional<String> result = testedInstance.findConfiguration(CONFIGURATION_KEY);
 
-        assertEquals(Optional.of(configuration), result);
+        assertEquals(Optional.of(CONFIGURATION_VALUE), result);
         verify(secondStrategy, never()).fetchConfiguration(CONFIGURATION_KEY);
     }
 
     @Test
     public void shouldReturnSecondStrategyWhenFound(){
-        when(secondStrategy.fetchConfiguration(CONFIGURATION_KEY)).thenReturn(Optional.of(configuration));
-        Optional<Configuration> result = testedInstance.findConfiguration(CONFIGURATION_KEY);
+        when(secondStrategy.fetchConfiguration(CONFIGURATION_KEY)).thenReturn(Optional.of(CONFIGURATION_VALUE));
+        Optional<String> result = testedInstance.findConfiguration(CONFIGURATION_KEY);
 
-        assertEquals(Optional.of(configuration), result);
+        assertEquals(Optional.of(CONFIGURATION_VALUE), result);
         verify(firstStrategy).fetchConfiguration(CONFIGURATION_KEY);
     }
 
     @Test
     public void shouldReturnEmptyWhenNoConfigurationFound(){
-        Optional<Configuration> result = testedInstance.findConfiguration(CONFIGURATION_KEY);
+        Optional<String> result = testedInstance.findConfiguration(CONFIGURATION_KEY);
 
         assertEquals(Optional.empty(), result);
     }

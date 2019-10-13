@@ -1,6 +1,5 @@
 package com.soft.storecore.core.config.service.impl;
 
-import com.soft.storecore.core.config.entity.Configuration;
 import com.soft.storecore.core.config.service.ConfigurationService;
 import com.soft.storecore.core.config.strategy.ConfigurationFetchingStrategy;
 import org.springframework.stereotype.Service;
@@ -16,11 +15,17 @@ public class DefaultConfigurationService implements ConfigurationService {
     private List<ConfigurationFetchingStrategy> configurationFetchingStrategies;
 
     @Override
-    public Optional<Configuration> findConfiguration(String key) {
+    public Optional<String> findConfiguration(String key) {
         return configurationFetchingStrategies.stream()
                 .flatMap(st -> st.fetchConfiguration(key).stream())
                 .findFirst();
     }
+
+    @Override
+    public String findConfiguration(String key, String defaultValue) {
+        return findConfiguration(key).orElse(defaultValue);
+    }
+
 
     public void setConfigurationFetchingStrategies(List<ConfigurationFetchingStrategy>
                                                            configurationFetchingStrategies) {

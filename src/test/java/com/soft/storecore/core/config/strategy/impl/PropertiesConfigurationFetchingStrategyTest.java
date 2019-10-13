@@ -1,6 +1,5 @@
 package com.soft.storecore.core.config.strategy.impl;
 
-import com.soft.storecore.core.config.entity.Configuration;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -27,10 +26,9 @@ public class PropertiesConfigurationFetchingStrategyTest {
     @Test
     public void shouldReturnConfiguration(){
         when(environment.getProperty(PROPERTY_KEY)).thenReturn(PROPERTY_VALUE);
-        Optional<Configuration> result = testedInstance.fetchConfiguration(PROPERTY_KEY);
+        Optional<String> result = testedInstance.fetchConfiguration(PROPERTY_KEY);
 
-        assertEquals(result.get().getKey(), PROPERTY_KEY);
-        assertEquals(result.get().getValue(), PROPERTY_VALUE);
+        assertEquals(Optional.of(PROPERTY_VALUE), result);
     }
 
 }
