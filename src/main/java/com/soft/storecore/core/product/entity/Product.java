@@ -27,7 +27,7 @@ public class Product extends BaseEntity {
     private Long price;
 
     @Column
-    private String imageUrl;
+    private String imageCode;
 
     @Column
     private String description;
@@ -79,12 +79,12 @@ public class Product extends BaseEntity {
         this.price = price;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImageCode() {
+        return imageCode;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImageCode(String imageCode) {
+        this.imageCode = imageCode;
     }
 
     public String getDescription() {

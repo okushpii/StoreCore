@@ -19,7 +19,7 @@ public class ProductPopulatorTest {
     private static final String PRODUCT_CODE = "10";
     private static final String PRODUCT_NAME = "productName";
     private static final long PRODUCT_PRICE = 200L;
-    private static final String PRODUCT_IMAGE_URL = "productImageUrl";
+    private static final String PRODUCT_IMAGE_CODE = "product/p-img";
     private static final String PRODUCT_DESCRIPTION = "productDescription";
 
     @InjectMocks
@@ -40,7 +40,7 @@ public class ProductPopulatorTest {
         assertEquals(PRODUCT_CODE, productData.getCode());
         assertEquals(PRODUCT_NAME, productData.getName());
         assertEquals(String.valueOf(PRODUCT_PRICE), productData.getPrice().toString());
-        assertEquals(PRODUCT_IMAGE_URL, productData.getImageUrl());
+        assertEquals(PRODUCT_IMAGE_CODE, productData.getImageCode());
         assertEquals(PRODUCT_DESCRIPTION, productData.getDescription());
         assertEquals(category, productData.getCategory());
     }
@@ -49,7 +49,7 @@ public class ProductPopulatorTest {
         when(product.getCode()).thenReturn(PRODUCT_CODE);
         when(product.getName()).thenReturn(PRODUCT_NAME);
         when(product.getPrice()).thenReturn(PRODUCT_PRICE);
-        when(product.getImageUrl()).thenReturn(PRODUCT_IMAGE_URL);
+        when(product.getImageCode()).thenReturn(PRODUCT_IMAGE_CODE);
         when(product.getDescription()).thenReturn(PRODUCT_DESCRIPTION);
         when(product.getCategory()).thenReturn(category);
 

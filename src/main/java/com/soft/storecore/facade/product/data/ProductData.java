@@ -7,7 +7,7 @@ public class ProductData {
     private String code;
     private String name;
     private Long price;
-    private String imageUrl;
+    private String imageCode;
     private String description;
     private Category category;
 
@@ -35,12 +35,12 @@ public class ProductData {
         this.price = price;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImageCode() {
+        return imageCode;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImageCode(String imageCode) {
+        this.imageCode = imageCode;
     }
 
     public String getDescription() {

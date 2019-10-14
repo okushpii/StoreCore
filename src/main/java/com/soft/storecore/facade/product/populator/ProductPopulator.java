@@ -13,7 +13,7 @@ public class ProductPopulator implements Populator<Product, ProductData> {
         productData.setCode(product.getCode());
         productData.setName(product.getName());
         productData.setPrice(product.getPrice());
-        productData.setImageUrl(product.getImageUrl());
+        productData.setImageCode(product.getImageCode());
         productData.setDescription(product.getDescription());
         productData.setCategory(product.getCategory());
     }

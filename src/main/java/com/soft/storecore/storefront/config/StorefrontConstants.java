@@ -22,5 +22,6 @@ public interface StorefrontConstants {
         String SORTING_FIELD = "sortingField";
         String SORTING_TYPE = "sortingType";
         String BREADCRUMBS = "breadcrumbs";
+        String IMAGE_FORMAT = "imageFormat";
     }
 }
