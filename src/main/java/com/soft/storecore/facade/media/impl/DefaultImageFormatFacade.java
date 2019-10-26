@@ -13,8 +13,7 @@ public class DefaultImageFormatFacade implements ImageFormatFacade {
     private ConfigurationService configurationService;
 
     @Override
-    public String getFormat(String key, String defaultValue) {
-        return configurationService.findConfiguration(key,
-                defaultValue);
+    public String getFormat(String key) {
+        return configurationService.findConfiguration(key).orElse(null);
     }
 }

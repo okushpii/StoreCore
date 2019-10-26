@@ -1,9 +1,10 @@
 package com.soft.storecore.core.product.dao;
 
-import com.soft.storecore.core.common.dao.QueryBuilder;
-import com.soft.storecore.core.common.dao.SessionProvider;
+import com.soft.storecore.core.common.dao.builder.QueryAppender;
+import com.soft.storecore.core.common.dao.pojo.Query;
+import com.soft.storecore.core.common.dao.util.SessionProvider;
 import com.soft.storecore.core.product.entity.Product;
-import com.soft.storecore.core.sorting.pojo.SortingData;
+import com.soft.storecore.core.sorting.entity.Sorting;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -16,15 +17,20 @@ public class DefaultProductDao implements ProductDao {
             " LEFT JOIN c.superCategory sc" +
             " WHERE c.code = :category OR sc.code = :category";
 
+    private static final String PRODUCT_ALIAS = "p";
+
     @Resource
     private SessionProvider sessionProvider;
     @Resource
-    private QueryBuilder<SortingData> sortingQueryBuilder;
+    private QueryAppender<Sorting> sortingQueryAppender;
 
     @Override
-    public List<Product> findAllByCategory(String categoryCode, SortingData sortingData) {
-        String resultQuery = sortingQueryBuilder.buildQuery(FIND_ALL_BY_CATEGORY_QUERY, sortingData);
-        return sessionProvider.getSession().createQuery(resultQuery, Product.class)
+    public List<Product> findAllByCategory(String categoryCode, Sorting sorting) {
+        Query query = new Query(FIND_ALL_BY_CATEGORY_QUERY, PRODUCT_ALIAS);
+
+        Query resultQuery = sortingQueryAppender.appendQuery(query, sorting);
+
+        return sessionProvider.getSession().createQuery(resultQuery.getQuery(), Product.class)
                 .setParameter("category", categoryCode).list();
     }
 }

@@ -7,6 +7,8 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import java.util.Optional;
+
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -14,8 +16,8 @@ import static org.mockito.Mockito.when;
 public class DefaultImageFormatFacadeTest {
 
     private static final String KEY = "anyKey";
-    private static final String DEFAULT_VALUE = "anyDefaultValue";
     private static final String FORMAT = "740x456";
+
     @InjectMocks
     private DefaultImageFormatFacade testedInstance;
 
@@ -24,8 +26,8 @@ public class DefaultImageFormatFacadeTest {
 
     @Test
     public void shouldReturnFormat(){
-        when(configurationService.findConfiguration(KEY, DEFAULT_VALUE)).thenReturn(FORMAT);
-        String result = testedInstance.getFormat(KEY, DEFAULT_VALUE);
+        when(configurationService.findConfiguration(KEY)).thenReturn(Optional.of(FORMAT));
+        String result = testedInstance.getFormat(KEY);
 
         assertEquals(FORMAT, result);
     }

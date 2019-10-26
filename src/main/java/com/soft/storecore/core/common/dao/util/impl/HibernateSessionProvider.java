@@ -1,6 +1,6 @@
-package com.soft.storecore.core.common.dao.impl;
+package com.soft.storecore.core.common.dao.util.impl;
 
-import com.soft.storecore.core.common.dao.SessionProvider;
+import com.soft.storecore.core.common.dao.util.SessionProvider;
 import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

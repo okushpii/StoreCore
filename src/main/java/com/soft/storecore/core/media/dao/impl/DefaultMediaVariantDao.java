@@ -1,6 +1,6 @@
 package com.soft.storecore.core.media.dao.impl;
 
-import com.soft.storecore.core.common.dao.SessionProvider;
+import com.soft.storecore.core.common.dao.util.SessionProvider;
 import com.soft.storecore.core.media.dao.MediaVariantDao;
 import com.soft.storecore.core.media.entity.MediaVariant;
 import org.springframework.stereotype.Repository;

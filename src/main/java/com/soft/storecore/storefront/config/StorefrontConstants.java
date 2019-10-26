@@ -19,9 +19,14 @@ public interface StorefrontConstants {
         String CATEGORIES = "categories";
         String PRODUCT_LIST = "productList";
         String CATEGORY_CODE = "categoryCode";
-        String SORTING_FIELD = "sortingField";
-        String SORTING_TYPE = "sortingType";
+        String SORTING_LIST = "sortingList";
         String BREADCRUMBS = "breadcrumbs";
         String IMAGE_FORMAT = "imageFormat";
+    }
+
+    interface Configuration {
+
+        String IMAGE_FORMAT_KEY = "media.product.list.image.format";
+        String SORTING_GROUP_KEY = "sorting.group.product";
     }
 }

@@ -1,4 +1,4 @@
-package com.soft.storecore.core.sorting.impl;
+package com.soft.storecore.core.sorting.service.impl;
 
 import com.soft.storecore.core.product.dao.ProductDao;
 import com.soft.storecore.core.product.entity.Product;

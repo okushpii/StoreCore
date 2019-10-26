@@ -3,6 +3,7 @@ package com.soft.storecore.storefront.controller.page;
 
 import com.soft.storecore.facade.media.ImageFormatFacade;
 import com.soft.storecore.facade.product.facade.ProductFacade;
+import com.soft.storecore.facade.sorting.facade.SortingFacade;
 import com.soft.storecore.storefront.breadcrumb.facade.BreadcrumbFacade;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,31 +18,26 @@ import static com.soft.storecore.storefront.config.StorefrontConstants.*;
 @Controller
 public class ProductListPageController {
 
-    private static final String IMAGE_FORMAT_KEY = "media.product.list.image.format";
-    private static final String DEFAULT_IMAGE_FORMAT = "730x560";
-
     @Resource
     private ProductFacade productFacade;
     @Resource
     private BreadcrumbFacade categoryBreadcrumbFacade;
     @Resource
     private ImageFormatFacade imageFormatFacade;
+    @Resource
+    private SortingFacade sortingFacade;
 
     @GetMapping(RequestMappings.PRODUCTS_BY_CATEGORY + "/{code}")
-    public String getByCategory(@PathVariable String code, Model model,
-                                @RequestParam(required = false, defaultValue = "placementDate")
-                                        String sortingField,
-                                @RequestParam(required = false, defaultValue = "asc"
-                                ) String sortingType) {
+    public String getByCategory(@PathVariable String code,
+                                @RequestParam(required = false) String sorting,
+                                Model model) {
 
-        model.addAttribute(Attributes.PRODUCT_LIST, productFacade
-                .findAllByCategory(code, sortingField, sortingType));
+        model.addAttribute(Attributes.PRODUCT_LIST, productFacade.findAllByCategory(code, sorting));
         model.addAttribute(Attributes.CATEGORY_CODE, code);
-        model.addAttribute(Attributes.SORTING_FIELD, sortingField);
-        model.addAttribute(Attributes.SORTING_TYPE, sortingType);
+        model.addAttribute(Attributes.SORTING_LIST, sortingFacade.find(Configuration.SORTING_GROUP_KEY, sorting));
         model.addAttribute(Attributes.BREADCRUMBS, categoryBreadcrumbFacade.getBreadcrumbs(code));
-        model.addAttribute(Attributes.IMAGE_FORMAT, imageFormatFacade
-                .getFormat(IMAGE_FORMAT_KEY, DEFAULT_IMAGE_FORMAT));
+        model.addAttribute(Attributes.IMAGE_FORMAT, imageFormatFacade.getFormat(Configuration.IMAGE_FORMAT_KEY));
+
         return Pages.PRODUCT_LIST_PAGE;
     }
 }
