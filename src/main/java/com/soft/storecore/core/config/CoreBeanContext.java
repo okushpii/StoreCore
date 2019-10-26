@@ -5,6 +5,8 @@ import com.soft.storecore.core.sorting.pojo.SortingField;
 import com.soft.storecore.core.sorting.pojo.SortingType;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
@@ -42,5 +44,10 @@ public class CoreBeanContext {
         strategies.add(databaseConfigurationFetchingStrategy);
         strategies.add(propertiesConfigurationFetchingStrategy);
         return strategies;
+    }
+
+    @Bean
+    public PasswordEncoder bCryptPasswordEncoder(){
+        return new BCryptPasswordEncoder();
     }
 }
