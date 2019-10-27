@@ -1,6 +1,6 @@
 package com.soft.storecore.core.user.dao;
 
-import com.soft.storecore.core.common.dao.SessionProvider;
+import com.soft.storecore.core.common.dao.util.SessionProvider;
 import com.soft.storecore.core.user.entity.User;
 import org.springframework.stereotype.Repository;
 
