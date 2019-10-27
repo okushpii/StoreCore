@@ -1,8 +1,7 @@
 package com.soft.storecore.core.product.entity;
 
 import com.soft.storecore.core.category.entity.Category;
-import com.soft.storecore.core.common.entity.BaseEntity;
-import org.hibernate.annotations.NaturalId;
+import com.soft.storecore.core.common.entity.IndexedEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,11 +10,7 @@ import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
 @Entity
-public class Product extends BaseEntity {
-
-    @NaturalId
-    @Column(nullable = false, unique = true, updatable = false)
-    private String code;
+public class Product extends IndexedEntity {
 
     @Column
     private String name;
@@ -38,14 +33,6 @@ public class Product extends BaseEntity {
     @ManyToOne
     @JoinColumn(referencedColumnName = "code", name = "category_code", nullable = false)
     private Category category;
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
 
     public Category getCategory() {
         return category;

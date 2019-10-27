@@ -1,17 +1,12 @@
 package com.soft.storecore.core.media.entity;
 
-import com.soft.storecore.core.common.entity.BaseEntity;
-import org.hibernate.annotations.NaturalId;
+import com.soft.storecore.core.common.entity.IndexedEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
-public class MediaVariant extends BaseEntity {
-
-    @NaturalId
-    @Column(nullable = false, unique = true, updatable = false)
-    private String code;
+public class MediaVariant extends IndexedEntity {
 
     @Column(nullable = false)
     private String mediaGroup;
@@ -24,14 +19,6 @@ public class MediaVariant extends BaseEntity {
 
     @Column(nullable = false)
     private String fileName;
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
 
     public String getMediaGroup() {
         return mediaGroup;

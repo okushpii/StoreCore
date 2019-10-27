@@ -1,16 +1,13 @@
 package com.soft.storecore.core.sorting.entity;
 
-import com.soft.storecore.core.common.entity.BaseEntity;
+import com.soft.storecore.core.common.entity.IndexedEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Transient;
 
 @Entity
-public class Sorting extends BaseEntity {
-
-    @Column(nullable = false, unique = true)
-    private String code;
+public class Sorting extends IndexedEntity {
 
     @Column(nullable = false)
     private String sortingGroup;
@@ -26,14 +23,6 @@ public class Sorting extends BaseEntity {
 
     @Transient
     private boolean selected;
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
 
     public String getSortingGroup() {
         return sortingGroup;

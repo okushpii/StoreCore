@@ -1,17 +1,12 @@
 package com.soft.storecore.core.user.entity;
 
-import com.soft.storecore.core.common.entity.BaseEntity;
-import org.hibernate.annotations.NaturalId;
+import com.soft.storecore.core.common.entity.IndexedEntity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
 @Entity
-public class User extends BaseEntity {
-
-    @NaturalId
-    @Column(nullable = false, unique = true, updatable = false)
-    private String code;
+public class User extends IndexedEntity {
 
     @Column
     private String firstName;
@@ -24,14 +19,6 @@ public class User extends BaseEntity {
 
     @Column
     private String password;
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
 
     public String getFirstName() {
         return firstName;
