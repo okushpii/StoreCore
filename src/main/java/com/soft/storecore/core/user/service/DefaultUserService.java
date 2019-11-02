@@ -16,4 +16,9 @@ public class DefaultUserService implements UserService {
     public void addUser(User user) {
         userDao.addUser(user);
     }
+
+    @Override
+    public boolean isExists(String email) {
+        return userDao.find(email).isPresent();
+    }
 }

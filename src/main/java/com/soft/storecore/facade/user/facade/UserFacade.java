@@ -5,4 +5,6 @@ import com.soft.storecore.facade.user.data.UserData;
 public interface UserFacade {
 
     void addUser(UserData userData);
+
+    boolean isUserExist(String email);
 }

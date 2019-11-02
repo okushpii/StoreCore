@@ -21,4 +21,9 @@ public class DefaultUserFacade implements UserFacade {
     public void addUser(UserData userData) {
         userService.addUser(userDataConverter.convert(userData));
     }
+
+    @Override
+    public boolean isUserExist(String email) {
+        return userService.isExists(email);
+    }
 }

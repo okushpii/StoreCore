@@ -11,11 +11,14 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
+import static junit.framework.TestCase.assertTrue;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultUserFacadeTest {
+
+    private static final String EMAIL = "email@gmail.com";
 
     @InjectMocks
     private DefaultUserFacade testedInstance;
@@ -37,5 +40,13 @@ public class DefaultUserFacadeTest {
         when(userReverseConverter.convert(userData)).thenReturn(user);
         testedInstance.addUser(userData);
         verify(userService).addUser(user);
+    }
+
+    @Test
+    public void shouldReturnUserExists(){
+        when(userService.isExists(EMAIL)).thenReturn(true);
+        boolean result = testedInstance.isUserExist(EMAIL);
+
+        assertTrue(result);
     }
 }
