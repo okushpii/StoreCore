@@ -2,8 +2,11 @@ package com.soft.storecore.facade.util.populator;
 
 import com.soft.storecore.core.category.entity.Category;
 import com.soft.storecore.core.product.entity.Product;
+import com.soft.storecore.facade.category.data.CategoryData;
 import com.soft.storecore.facade.product.data.ProductData;
 import com.soft.storecore.facade.product.populator.ProductPopulator;
+import com.soft.storecore.facade.util.converter.Converter;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -26,9 +29,18 @@ public class ProductPopulatorTest {
     private ProductPopulator testedInstance;
 
     @Mock
+    private Converter<Category, CategoryData> categoryConverter;
+    @Mock
     private Category category;
     @Mock
     private Product product;
+
+    private CategoryData categoryData;
+
+    @Before
+    public void setUp(){
+        categoryData = new CategoryData();
+    }
 
     @Test
     public void shouldPopulateProductsData() {
@@ -42,7 +54,7 @@ public class ProductPopulatorTest {
         assertEquals(String.valueOf(PRODUCT_PRICE), productData.getPrice().toString());
         assertEquals(PRODUCT_IMAGE_CODE, productData.getImageCode());
         assertEquals(PRODUCT_DESCRIPTION, productData.getDescription());
-        assertEquals(category, productData.getCategory());
+        assertEquals(categoryData, productData.getCategory());
     }
 
     private void prepareProduct() {
@@ -52,6 +64,7 @@ public class ProductPopulatorTest {
         when(product.getImageCode()).thenReturn(PRODUCT_IMAGE_CODE);
         when(product.getDescription()).thenReturn(PRODUCT_DESCRIPTION);
         when(product.getCategory()).thenReturn(category);
+        when(categoryConverter.convert(category)).thenReturn(categoryData);
 
     }
 }

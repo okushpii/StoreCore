@@ -1,6 +1,6 @@
 package com.soft.storecore.facade.product.data;
 
-import com.soft.storecore.core.category.entity.Category;
+import com.soft.storecore.facade.category.data.CategoryData;
 
 public class ProductData {
 
@@ -9,7 +9,7 @@ public class ProductData {
     private Long price;
     private String imageCode;
     private String description;
-    private Category category;
+    private CategoryData category;
 
     public String getCode() {
         return code;
@@ -51,11 +51,11 @@ public class ProductData {
         this.description = description;
     }
 
-    public Category getCategory() {
+    public CategoryData getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public void setCategory(CategoryData category) {
         this.category = category;
     }
 }
