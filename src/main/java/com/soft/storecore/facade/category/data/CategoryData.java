@@ -9,7 +9,7 @@ public class CategoryData {
     private String code;
     private String name;
     private Category superCategory;
-    private List<Category> childCategories;
+    private List<CategoryData> childCategories;
 
     public String getCode() {
         return code;
@@ -35,11 +35,11 @@ public class CategoryData {
         this.superCategory = superCategory;
     }
 
-    public List<Category> getChildCategories() {
+    public List<CategoryData> getChildCategories() {
         return childCategories;
     }
 
-    public void setChildCategories(List<Category> childCategories) {
+    public void setChildCategories(List<CategoryData> childCategories) {
         this.childCategories = childCategories;
     }
 }
