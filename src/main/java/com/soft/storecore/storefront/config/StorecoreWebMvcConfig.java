@@ -4,6 +4,7 @@ import com.soft.storecore.storefront.interceptor.HeaderAttributesInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.LocaleChangeInterceptor;
 
 import javax.annotation.Resource;
 
@@ -17,9 +18,12 @@ public class StorecoreWebMvcConfig implements WebMvcConfigurer {
 
     @Resource
     private HeaderAttributesInterceptor headerAttributesInterceptor;
+    @Resource
+    private LocaleChangeInterceptor localeChangeInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(localeChangeInterceptor);
         registry.addInterceptor(headerAttributesInterceptor).addPathPatterns(
                 HOME_PAGE + ALL_MATCH_PATTERN,
                 PRODUCTS_BY_CATEGORY + ALL_MATCH_PATTERN
