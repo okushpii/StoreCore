@@ -53,24 +53,7 @@
     </nav>
 
     <nav class="navbar navbar-expand-lg navbar navbar-light bg-light">
-        <div class="collapse navbar-collapse">
-            <c:forEach items="${categories}" var="category">
-                <c:url var="productListUrl" value = "/c"/>
-                <ul class="navbar-nav">
-                    <li class="nav-item dropdown dropdown-hover">
-                        <a class="nav-link" href="${productListUrl}/${category.code}">
-                                ${category.name}
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <c:forEach items="${category.childCategories}" var="childCategory">
-                                <a class="dropdown-item" href= "${productListUrl}/${childCategory.code}">
-                                        ${childCategory.name}
-                                </a>
-                            </c:forEach>
-                        </div>
-                    </li>
-                </ul>
-            </c:forEach>
+        <div id="categoriesNav" class="collapse navbar-collapse">
         </div>
     </nav>
 </header>

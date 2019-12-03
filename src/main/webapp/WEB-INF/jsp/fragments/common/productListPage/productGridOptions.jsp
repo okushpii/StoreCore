@@ -21,7 +21,7 @@
 
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <c:forEach items="${sortingList}" var="sorting">
-                <c:url var="findProductsWithSorting" value="/c/${categoryCode}/">
+                <c:url var="findProductsWithSorting" value="products/c/${categoryCode}/">
                     <c:param name="sorting" value="${sorting.code}"/>
                 </c:url>
                 <c:choose>

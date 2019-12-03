@@ -19,7 +19,6 @@ public interface StorefrontConstants {
     interface Attributes {
 
         String REDIRECT_PREFIX = "redirect:";
-        String CATEGORIES = "categories";
         String PRODUCT_LIST = "productList";
         String CATEGORY_CODE = "categoryCode";
         String SORTING_LIST = "sortingList";
