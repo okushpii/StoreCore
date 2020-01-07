@@ -14,6 +14,7 @@ public class ProductController {
     @Resource
     private ProductFacade productFacade;
 
+    @CrossOrigin
     @GetMapping("/c/{code}")
     public List<ProductData> findByCategory(@PathVariable("code") String categoryCode,
                                             @RequestParam(required = false) String sorting){

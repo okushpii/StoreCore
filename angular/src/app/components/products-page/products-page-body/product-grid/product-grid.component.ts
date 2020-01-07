@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from "@angular/router";
+import {ProductService} from "../../../../services/product.service";
+import {Product} from "../../../../models/product";
 
 @Component({
   selector: 'app-product-grid',
@@ -7,9 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductGridComponent implements OnInit {
 
-  constructor() { }
+  products: Product[];
 
-  ngOnInit() {
+  constructor(
+    private route: ActivatedRoute,
+    private productService: ProductService
+  ) {
   }
 
+  ngOnInit() {
+    this.route.paramMap.subscribe(p => {
+      let categoryCode = p.get("categoryId");
+      this.fetchProducts(categoryCode);
+    });
+  }
+
+  private fetchProducts(categoryCode: string) {
+    this.productService.find(categoryCode).subscribe(p => {
+      this.products = p;
+    });
+  }
 }
