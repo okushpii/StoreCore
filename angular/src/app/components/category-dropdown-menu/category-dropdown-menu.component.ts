@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { CategoryService } from "../../services/category.service";
+import {Category} from "../../models/category";
 
-import { Category } from '../../models/category';
 
 @Component({
   selector: 'app-category-dropdown-menu',
@@ -9,22 +10,16 @@ import { Category } from '../../models/category';
 })
 export class CategoryDropdownMenuComponent implements OnInit {
 
-  category:Category;
+  categories:Category[];
 
-  constructor() { }
+  constructor(
+    private categoryService:CategoryService
+  ) { }
 
   ngOnInit() {
-    this.category = {
-      id: 12,
-      name: "Snowboars",
-      subCategories: [
-        {
-          id: 1,
-          name: "lol",
-          subCategories: []
-        }
-      ]
-    };
+    this.categoryService.findAll().subscribe(result => {
+      this.categories = result;
+    });
   }
 
 }
