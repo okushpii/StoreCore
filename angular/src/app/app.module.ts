@@ -1,6 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-
 import {AppRoutingModule} from './app-routing.module';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
 import {RouterModule} from "@angular/router";
@@ -51,7 +50,7 @@ const routes = [
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, {'onSameUrlNavigation': "reload"})
   ],
   providers: [],
   bootstrap: [AppComponent]
