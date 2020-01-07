@@ -7,13 +7,13 @@ import {RouterModule} from "@angular/router";
 
 import {HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
-import {HeaderComponent} from './components/header/header.component';
-import {TopBarComponent} from './components/top-bar/top-bar.component';
-import {NavBarComponent} from './components/nav-bar/nav-bar.component';
-import {CategoryDropdownMenuComponent} from './components/category-dropdown-menu/category-dropdown-menu.component';
+import {HeaderComponent} from './components/common/header/header.component';
+import {TopBarComponent} from './components/common/header/top-bar/top-bar.component';
+import {NavBarComponent} from './components/common/header/nav-bar/nav-bar.component';
+import {CategoryDropdownMenuComponent} from './components/common/header/nav-bar/category-dropdown-menu/category-dropdown-menu.component';
 import {HomePageComponent} from './components/home-page/home-page.component';
-import { FooterComponent } from './components/footer/footer.component';
-import { HomePageBodyComponent } from './components/home-page-body/home-page-body.component';
+import { FooterComponent } from './components/common/footer/footer.component';
+import { HomePageBodyComponent } from './components/home-page/home-page-body/home-page-body.component';
 
 
 const routes = [
