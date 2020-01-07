@@ -1,9 +1,9 @@
-<li ngbDropdown class="nav-item dropdown">
+<li ngbDropdown class="nav-item dropdown" *ngFor="let category of categories">
   <a ngbDropdownToggle class="nav-link" href="#">
     {{ category.name }}
   </a>
   <div ngbDropdownMenu class="" aria-labelledby="navbarDropdown">
-    <a ngbDropdownItem href="#" *ngFor="let subCategory of category.subCategories">
+    <a ngbDropdownItem href="#" *ngFor="let subCategory of category.childCategories">
       {{ subCategory.name }}
     </a>
   </div>
