@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CategoryService } from "../../services/category.service";
-import {Category} from "../../models/category";
-
+import {Category} from "../../../../../models/category";
+import {CategoryService} from "../../../../../services/category.service";
 
 @Component({
   selector: 'app-category-dropdown-menu',
@@ -21,5 +20,4 @@ export class CategoryDropdownMenuComponent implements OnInit {
       this.categories = result;
     });
   }
-
 }
