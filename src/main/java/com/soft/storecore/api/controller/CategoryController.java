@@ -10,14 +10,16 @@ import org.springframework.web.bind.annotation.RestController;
 import javax.annotation.Resource;
 import java.util.List;
 
+import static com.soft.storecore.api.util.ApiConstants.FE_HTTP_URI;
+
 @RestController
 @RequestMapping("api/categories")
+@CrossOrigin(origins = FE_HTTP_URI)
 public class CategoryController {
 
     @Resource
     private CategoryFacade categoryFacade;
 
-    @CrossOrigin
     @GetMapping
     public List<CategoryData> getCategories(){
         return categoryFacade.findAll();
