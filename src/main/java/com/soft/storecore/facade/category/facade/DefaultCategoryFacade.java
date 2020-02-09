@@ -7,18 +7,18 @@ import com.soft.storecore.facade.util.converter.Converter;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.util.Collections;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 @Component
 public class DefaultCategoryFacade implements CategoryFacade {
 
     @Resource
     private CategoryService categoryService;
-
     @Resource
     private Converter<Category, CategoryData> categoryConverter;
+    @Resource
+    private Converter<Category, CategoryData> lowLevelCategoryConverter;
 
     @Override
     public List<CategoryData> findAll() {
@@ -26,12 +26,7 @@ public class DefaultCategoryFacade implements CategoryFacade {
     }
 
     @Override
-    public List<CategoryData> findSupercategories(String categoryCode) {
-        List<Category> categories = categoryService.findById(categoryCode)
-                .map(c -> categoryService.findSupercategories(c)).orElse(Collections.emptyList());
-
-        return categories.stream()
-                .map(c -> categoryConverter.convert(c))
-                .collect(Collectors.toList());
+    public Optional<CategoryData> find(String code) {
+        return categoryService.findById(code).map(c -> lowLevelCategoryConverter.convert(c));
     }
 }
