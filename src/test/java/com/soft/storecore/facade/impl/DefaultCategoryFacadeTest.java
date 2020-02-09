@@ -3,6 +3,7 @@ package com.soft.storecore.facade.impl;
 import com.soft.storecore.core.category.entity.Category;
 import com.soft.storecore.core.category.service.CategoryService;
 import com.soft.storecore.facade.category.converter.CategoryConverter;
+import com.soft.storecore.facade.category.converter.LowLevelCategoryConverter;
 import com.soft.storecore.facade.category.data.CategoryData;
 import com.soft.storecore.facade.category.facade.DefaultCategoryFacade;
 import org.junit.Test;
@@ -22,7 +23,7 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class DefaultCategoryFacadeTest {
 
-    private static final String CATEGORY_CODE = "12";
+    private static final String CATEGORY_CODE = "CAT-8";
 
     @InjectMocks
     private DefaultCategoryFacade testedEntry;
@@ -34,8 +35,7 @@ public class DefaultCategoryFacadeTest {
     @Mock
     private CategoryConverter categoryConverter;
     @Mock
-    private CategoryData categoryData;
-
+    private LowLevelCategoryConverter lowLevelCategoryConverter;
 
     @Test
     public void shouldFindAll() {
@@ -50,28 +50,14 @@ public class DefaultCategoryFacadeTest {
     }
 
     @Test
-    public void shouldFindSuperCategoriesWhenAbsent() {
-        List<Category> result = categoryService.findSupercategories(category);
+    public void shouldFindCategory(){
+        CategoryData categoryData = new CategoryData();
 
-        assertEquals(Collections.emptyList(), result);
+        when(categoryService.findById(CATEGORY_CODE)).thenReturn(Optional.of(category));
+        when(lowLevelCategoryConverter.convert(category)).thenReturn(categoryData);
+        Optional<CategoryData> result = testedEntry.find(CATEGORY_CODE);
 
-    }
-
-    @Test
-    public void shouldFindSuperCategoriesWhenPresent() {
-        Optional<Category> categoryOptional = Optional.of(category);
-        List<Category> categoryList = List.of(category);
-        List<CategoryData> categoryDataList = Collections.singletonList(categoryData);
-
-        when(categoryService.findById(CATEGORY_CODE)).thenReturn(categoryOptional);
-        when(categoryService.findSupercategories(category)).thenReturn(categoryList);
-        when(categoryConverter.convert(category)).thenReturn(categoryData);
-
-
-        List<CategoryData> result = testedEntry.findSupercategories(CATEGORY_CODE);
-
-        assertEquals(categoryDataList, result);
-
+        assertEquals(Optional.of(categoryData), result);
 
     }
 }

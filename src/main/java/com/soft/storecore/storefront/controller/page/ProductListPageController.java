@@ -4,7 +4,6 @@ package com.soft.storecore.storefront.controller.page;
 import com.soft.storecore.facade.media.ImageFormatFacade;
 import com.soft.storecore.facade.product.facade.ProductFacade;
 import com.soft.storecore.facade.sorting.facade.SortingFacade;
-import com.soft.storecore.storefront.breadcrumb.facade.BreadcrumbFacade;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,8 +22,6 @@ public class ProductListPageController {
     @Resource
     private ProductFacade productFacade;
     @Resource
-    private BreadcrumbFacade categoryBreadcrumbFacade;
-    @Resource
     private ImageFormatFacade imageFormatFacade;
     @Resource
     private SortingFacade sortingFacade;
@@ -37,7 +34,6 @@ public class ProductListPageController {
         model.addAttribute(Attributes.PRODUCT_LIST, productFacade.findAllByCategory(code, sorting));
         model.addAttribute(Attributes.CATEGORY_CODE, code);
         model.addAttribute(Attributes.SORTING_LIST, sortingFacade.find(Configuration.SORTING_GROUP_KEY, sorting));
-        model.addAttribute(Attributes.BREADCRUMBS, categoryBreadcrumbFacade.getBreadcrumbs(code));
         model.addAttribute(Attributes.IMAGE_FORMAT, imageFormatFacade.getFormat(Configuration.IMAGE_FORMAT_KEY));
 
         return Pages.PRODUCT_LIST_PAGE;

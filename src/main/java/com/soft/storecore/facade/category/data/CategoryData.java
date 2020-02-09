@@ -1,14 +1,12 @@
 package com.soft.storecore.facade.category.data;
 
-import com.soft.storecore.core.category.entity.Category;
-
 import java.util.List;
 
 public class CategoryData {
 
     private String code;
     private String name;
-    private Category superCategory;
+    private CategoryData superCategory;
     private List<CategoryData> childCategories;
 
     public String getCode() {
@@ -27,11 +25,11 @@ public class CategoryData {
         this.name = name;
     }
 
-    public Category getSuperCategory() {
+    public CategoryData getSuperCategory() {
         return superCategory;
     }
 
-    public void setSuperCategory(Category superCategory) {
+    public void setSuperCategory(CategoryData superCategory) {
         this.superCategory = superCategory;
     }
 

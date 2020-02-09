@@ -9,7 +9,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -29,8 +28,6 @@ public class DefaultCategoryServiceTest {
     private CategoryDao categoryDao;
     @Mock
     private Category category;
-    @Mock
-    private Category superCategory;
 
     @Test
     public void shouldFindAll() {
@@ -39,30 +36,6 @@ public class DefaultCategoryServiceTest {
         List<Category> result = testedEntry.findAll();
 
         assertEquals(categories, result);
-    }
-
-    @Test
-    public void shouldFindSuperCategoriesWhenPresent() {
-        List<Category> expected = new ArrayList<>();
-        expected.add(category);
-        expected.add(superCategory);
-
-        when(category.getSuperCategory()).thenReturn(superCategory);
-        List<Category> result = testedEntry.findSupercategories(category);
-
-        assertEquals(expected, result);
-    }
-
-    @Test
-    public void shouldFindSuperCategoriesWhenAbsent() {
-        List<Category> expected = new ArrayList<>();
-        expected.add(category);
-
-        when(category.getSuperCategory()).thenReturn(null);
-        List<Category> result = testedEntry.findSupercategories(category);
-
-        assertEquals(expected, result);
-
     }
 
     @Test
