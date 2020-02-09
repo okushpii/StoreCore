@@ -9,12 +9,16 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
 public class CategoryControllerTest {
+
+    private static final String CATEGORY_CODE = "CAT-8";
 
     @InjectMocks
     private CategoryController testedInstance;
@@ -30,6 +34,22 @@ public class CategoryControllerTest {
         List<CategoryData> result = testedInstance.getCategories();
 
         assertEquals(categories, result);
+    }
+
+    @Test
+    public void shouldReturnCategory(){
+        CategoryData category = new CategoryData();
+
+        when(categoryFacade.find(CATEGORY_CODE)).thenReturn(Optional.of(category));
+        CategoryData result = testedInstance.getCategory(CATEGORY_CODE);
+
+        assertEquals(category, result);
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void shouldThrowExceptionWhenNotCategoryFound(){
+        when(categoryFacade.find(CATEGORY_CODE)).thenReturn(Optional.empty());
+        testedInstance.getCategory(CATEGORY_CODE);
     }
 
 }

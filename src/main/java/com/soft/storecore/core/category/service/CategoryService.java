@@ -9,7 +9,5 @@ public interface CategoryService {
 
     List<Category> findAll();
 
-    List<Category> findSupercategories(Category category);
-
     Optional<Category> findById(String code);
 }
