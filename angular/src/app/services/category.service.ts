@@ -9,7 +9,7 @@ import {Category} from "../models/category";
 })
 export class CategoryService {
 
-  private categoriesUrl:string = "http://localhost:8080/api/categories";
+  private categoriesUrl: string = "http://localhost:8080/api/categories";
 
   constructor(
     private http: HttpClient
@@ -17,5 +17,9 @@ export class CategoryService {
 
   findAll(): Observable<Category[]> {
     return this.http.get<Category[]>(this.categoriesUrl);
+  }
+
+  find(code: string): Observable<Category> {
+    return this.http.get<Category>(this.categoriesUrl + "/" + code);
   }
 }
