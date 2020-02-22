@@ -1,7 +1,7 @@
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a [routerLink]="['/']">Home</a></li>
-    <li class="breadcrumb-item" *ngIf="category.superCategory">
+    <li class="breadcrumb-item" *ngIf="category && category.superCategory">
       <a [routerLink]="['/products/', category.superCategory.code]">{{category.superCategory.name}}</a>
     </li>
     <li class="breadcrumb-item" *ngIf="category">
