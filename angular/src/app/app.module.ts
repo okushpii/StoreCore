@@ -2,7 +2,6 @@ import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 import {AppRoutingModule} from './app-routing.module';
 import {NgbModule} from "@ng-bootstrap/ng-bootstrap";
-import {RouterModule} from "@angular/router";
 
 import {HttpClientModule} from '@angular/common/http';
 import {AppComponent} from './app.component';
@@ -20,12 +19,6 @@ import { ProductFacetsComponent } from './components/products-page/products-page
 import { ProductSortingComponent } from './components/products-page/products-page-body/product-sorting/product-sorting.component';
 import { ProductGridComponent } from './components/products-page/products-page-body/product-grid/product-grid.component';
 import { ProductPaginationComponent } from './components/products-page/products-page-body/product-pagination/product-pagination.component';
-
-
-const routes = [
-  {path: "", component: HomePageComponent},
-  {path: "products/:categoryId", component: ProductsPageComponent}
-];
 
 @NgModule({
   declarations: [
@@ -49,8 +42,7 @@ const routes = [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule,
-    RouterModule.forRoot(routes, {'onSameUrlNavigation': "reload"})
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
