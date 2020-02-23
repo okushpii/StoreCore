@@ -16,24 +16,8 @@ public class DefaultSortingService implements SortingService {
     private SortingDao sortingDao;
 
     @Override
-    public List<Sorting> findAllGrouped(String group, String currentSorting) {
-        return getSortingListWithSelected(sortingDao.findByGroup(group), currentSorting);
-    }
-
-    private List<Sorting> getSortingListWithSelected(List<Sorting> sortingList, String currentSorting) {
-        sortingList.stream().filter(s -> isSortingIsCurrent(currentSorting, s))
-                .findFirst().ifPresentOrElse(this::markSelected,
-                () -> sortingList.stream().findFirst().ifPresent(this::markSelected));
-
-        return sortingList;
-    }
-
-    private boolean isSortingIsCurrent(String currentSorting, Sorting s) {
-        return s.getCode().equals(currentSorting);
-    }
-
-    private void markSelected(Sorting sorting) {
-        sorting.setSelected(true);
+    public List<Sorting> findByGroup(String group) {
+        return sortingDao.findByGroup(group);
     }
 
     @Override

@@ -9,7 +9,6 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -37,12 +36,10 @@ public class SortingPopulatorTest {
     private void assertFields(SortingData sortingData) {
         assertEquals(SORTING_CODE, sortingData.getCode());
         assertEquals(SORTING_NAME, sortingData.getName());
-        assertTrue(sortingData.isSelected());
     }
 
     private void prepareSorting() {
         when(sorting.getCode()).thenReturn(SORTING_CODE);
         when(sorting.getName()).thenReturn(SORTING_NAME);
-        when(sorting.isSelected()).thenReturn(true);
     }
 }
