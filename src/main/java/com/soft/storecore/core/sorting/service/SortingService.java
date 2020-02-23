@@ -7,7 +7,7 @@ import java.util.Optional;
 
 public interface SortingService {
 
-    List<Sorting> findAllGrouped(String group, String currentSorting);
+    List<Sorting> findByGroup(String group);
 
     Optional<Sorting> find(String code);
 }
