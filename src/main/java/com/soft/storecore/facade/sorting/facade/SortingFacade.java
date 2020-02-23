@@ -6,5 +6,5 @@ import java.util.List;
 
 public interface SortingFacade {
 
-    List<SortingData> find(String group, String currentSorting);
+    List<SortingData> find(String group);
 }
