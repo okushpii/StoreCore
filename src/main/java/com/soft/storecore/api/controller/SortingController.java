@@ -10,16 +10,16 @@ import java.util.List;
 import static com.soft.storecore.api.util.ApiConstants.FE_HTTP_URI;
 
 @RestController
-@RequestMapping("api/sortingList")
+@RequestMapping("api/sorting")
 @CrossOrigin(origins = FE_HTTP_URI)
-public class SortingListController {
+public class SortingController {
 
     @Resource
     private SortingFacade sortingFacade;
 
-    @GetMapping("/{group}")
-    public List<SortingData> findSortingListByGroup(@PathVariable("group") String group) {
-        return sortingFacade.find(group);
+    @GetMapping("/group/{groupCode}")
+    public List<SortingData> findSortingListByGroup(@PathVariable("groupCode") String groupCode) {
+        return sortingFacade.find(groupCode);
     }
 
 }

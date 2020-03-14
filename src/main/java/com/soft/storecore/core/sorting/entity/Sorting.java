@@ -21,8 +21,8 @@ public class Sorting extends IndexedEntity {
     @Column(nullable = false)
     private String name;
 
-    @Transient
-    private boolean selected;
+    @Column(nullable = false)
+    private boolean byDefault;
 
     public String getSortingGroup() {
         return sortingGroup;
@@ -56,11 +56,11 @@ public class Sorting extends IndexedEntity {
         this.name = name;
     }
 
-    public boolean isSelected() {
-        return selected;
+    public boolean isByDefault() {
+        return byDefault;
     }
 
-    public void setSelected(boolean selected) {
-        this.selected = selected;
+    public void setByDefault(boolean byDefault) {
+        this.byDefault = byDefault;
     }
 }
