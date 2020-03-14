@@ -11,6 +11,7 @@ import {ProductPaginationComponent} from "./products-page-body/product-paginatio
 import {RouterModule} from "@angular/router";
 import {HeaderModule} from "../common/header/header.module";
 import {FooterModule} from "../common/footer/footer.module";
+import {NgbDropdownModule} from "@ng-bootstrap/ng-bootstrap";
 
 @NgModule({
   declarations: [
@@ -22,12 +23,13 @@ import {FooterModule} from "../common/footer/footer.module";
     ProductGridComponent,
     ProductPaginationComponent,
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    HeaderModule,
-    FooterModule
-  ],
+    imports: [
+      NgbDropdownModule,
+      CommonModule,
+      RouterModule,
+      HeaderModule,
+      FooterModule
+    ],
   exports: [
     ProductsPageComponent,
     ProductsPageBodyComponent,
