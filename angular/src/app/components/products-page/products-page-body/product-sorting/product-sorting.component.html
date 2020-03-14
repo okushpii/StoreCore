@@ -1,15 +1,17 @@
 <nav class="d-flex flex-row-reverse">
-  <div class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" href="#" role="button"
-       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Date added asc
-    </a>
-    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <a class="dropdown-item active" href="#">Date added asc</a>
-      <a class="dropdown-item" href="#">Date added desc</a>
-      <a class="dropdown-item" href="#">Price asc</a>
-      <a class="dropdown-item" href="#">Price desc</a>
-      <a class="dropdown-item" href="#">Rating</a>
+  <div ngbDropdown class="d-inline-block">
+
+    <button class="btn btn-outline-primary" ngbDropdownToggle>
+      {{getSelectedSortingName(sortingList)}}
+    </button>
+    <div ngbDropdownMenu class="nav-item dropdown">
+      <div *ngFor="let sorting of sortingList">
+        <a ngbDropdownItem
+           [ngClass]="{'active' : sortingIsSelected(sorting)}" [routerLink]="[]"
+           [queryParams]="{'sorting' : sorting.code}">
+          {{sorting.name}}
+        </a>
+      </div>
     </div>
   </div>
 </nav>
