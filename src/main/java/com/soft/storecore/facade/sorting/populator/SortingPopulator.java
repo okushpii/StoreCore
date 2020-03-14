@@ -12,5 +12,6 @@ public class SortingPopulator implements Populator<Sorting, SortingData> {
     public void populate(Sorting sorting, SortingData sortingData) {
         sortingData.setCode(sorting.getCode());
         sortingData.setName(sorting.getName());
+        sortingData.setByDefault(sorting.isByDefault());
     }
 }
