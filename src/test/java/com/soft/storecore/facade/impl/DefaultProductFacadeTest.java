@@ -24,6 +24,8 @@ public class DefaultProductFacadeTest {
 
     private static final String CATEGORY_CODE = "12";
     private static final String SORTING_CODE = "product";
+    private static final int PAGE_NUMBER = 2;
+    private static final int PAGE_SIZE = 5;
 
 
     @InjectMocks
@@ -46,9 +48,9 @@ public class DefaultProductFacadeTest {
         List<ProductData> productDataList = List.of(new ProductData());
 
         when(sortingService.find(SORTING_CODE)).thenReturn(Optional.of(sorting));
-        when(productService.findAllByCategory(CATEGORY_CODE, sorting)).thenReturn(products);
+        when(productService.findAllByCategory(CATEGORY_CODE, sorting, PAGE_NUMBER, PAGE_SIZE)).thenReturn(products);
         when(productConverter.convertAll(products)).thenReturn(productDataList);
-        List<ProductData> result = testedEntry.findAllByCategory(CATEGORY_CODE, SORTING_CODE);
+        List<ProductData> result = testedEntry.findAllByCategory(CATEGORY_CODE, SORTING_CODE, PAGE_NUMBER, PAGE_SIZE);
 
         assertEquals(productDataList, result);
     }

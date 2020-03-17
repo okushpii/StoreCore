@@ -13,9 +13,14 @@ public class DefaultProductService implements ProductService {
 
     @Resource
     private ProductDao productDao;
+    @Resource
+    private PaginationService paginationService;
+
 
     @Override
-    public List<Product> findAllByCategory(String categoryCode, Sorting sorting) {
-        return productDao.findAllByCategory(categoryCode, sorting);
+    public List<Product> findAllByCategory(String categoryCode, Sorting sorting,
+                                           int pageNumber, int pageSize) {
+        return productDao.findAllByCategory(categoryCode, sorting,
+                paginationService.getStart(pageNumber, pageSize), pageSize);
     }
 }

@@ -25,12 +25,14 @@ public class DefaultProductDao implements ProductDao {
     private QueryAppender<Sorting> sortingQueryAppender;
 
     @Override
-    public List<Product> findAllByCategory(String categoryCode, Sorting sorting) {
+    public List<Product> findAllByCategory(String categoryCode, Sorting sorting,
+                                           int start, int pageSize) {
         Query query = new Query(FIND_ALL_BY_CATEGORY_QUERY, PRODUCT_ALIAS);
 
         Query resultQuery = sortingQueryAppender.appendQuery(query, sorting);
 
         return sessionProvider.getSession().createQuery(resultQuery.getQuery(), Product.class)
-                .setParameter("category", categoryCode).list();
+                .setParameter("category", categoryCode).setFirstResult(start)
+                .setMaxResults(pageSize).list();
     }
 }

@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface ProductFacade {
 
-    List<ProductData> findAllByCategory(String categoryCode, String sorting);
+    List<ProductData> findAllByCategory(String categoryCode, String sorting, int pageNumber, int pageSize);
 }
 

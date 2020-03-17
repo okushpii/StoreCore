@@ -61,7 +61,6 @@ public class ProductPageControllerTest {
         List<Breadcrumb> breadcrumbList = Collections.singletonList(breadcrumb);
         List<SortingData> sortingList = List.of(new SortingData());
 
-        when(productFacade.findAllByCategory(CATEGORY_CODE, SORTING)).thenReturn(productList);
         when(breadcrumbFacade.getBreadcrumbs(CATEGORY_CODE)).thenReturn(breadcrumbList);
         when(imageFormatFacade.getFormat(IMAGE_FORMAT_KEY)).thenReturn(IMAGE_FORMAT);
         when(sortingFacade.find(SORTING_GROUP_KEY, SORTING)).thenReturn(sortingList);
