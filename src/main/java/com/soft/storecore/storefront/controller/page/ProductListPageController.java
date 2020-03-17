@@ -34,7 +34,7 @@ public class ProductListPageController {
                                 @RequestParam(required = false) String sorting,
                                 Model model) {
 
-        model.addAttribute(Attributes.PRODUCT_LIST, productFacade.findAllByCategory(code, sorting));
+        model.addAttribute(Attributes.PRODUCT_LIST, productFacade.findAllByCategory(code, sorting, 1, 1));
         model.addAttribute(Attributes.CATEGORY_CODE, code);
         model.addAttribute(Attributes.SORTING_LIST, sortingFacade.find(Configuration.SORTING_GROUP_KEY, sorting));
         model.addAttribute(Attributes.BREADCRUMBS, categoryBreadcrumbFacade.getBreadcrumbs(code));

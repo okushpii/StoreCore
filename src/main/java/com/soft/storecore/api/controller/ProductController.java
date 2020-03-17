@@ -16,7 +16,9 @@ public class ProductController {
 
     @GetMapping("/c/{code}")
     public List<ProductData> findByCategory(@PathVariable("code") String categoryCode,
-                                            @RequestParam(required = false) String sorting){
-        return productFacade.findAllByCategory(categoryCode, sorting);
+                                            @RequestParam(required = false) String sorting,
+                                            @RequestParam(value = "pageNumber", defaultValue = "1") int pageNumber,
+                                            @RequestParam(value = "pageSize", defaultValue = "5") int pageSize){
+        return productFacade.findAllByCategory(categoryCode, sorting, pageNumber, pageSize);
     }
 }

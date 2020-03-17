@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface ProductService {
 
-    List<Product> findAllByCategory(String categoryCode, Sorting sorting);
+    List<Product> findAllByCategory(String categoryCode, Sorting sorting,
+                                    int pageNumber, int pageSize);
 }

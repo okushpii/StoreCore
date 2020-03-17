@@ -22,9 +22,10 @@ public class DefaultProductFacade implements ProductFacade {
     private SortingService sortingService;
 
     @Override
-    public List<ProductData> findAllByCategory(String categoryCode, String sortingCode) {
+    public List<ProductData> findAllByCategory(String categoryCode, String sortingCode,
+                                               int pageNumber, int pageSize) {
         Sorting sorting = sortingService.find(sortingCode).orElse(null);
         return productConverter.convertAll(productService
-                .findAllByCategory(categoryCode, sorting));
+                .findAllByCategory(categoryCode, sorting, pageNumber, pageSize));
     }
 }
