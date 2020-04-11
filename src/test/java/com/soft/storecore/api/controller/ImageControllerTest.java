@@ -1,4 +1,4 @@
-package com.soft.storecore.storefront.controller.util;
+package com.soft.storecore.api.controller;
 
 import com.soft.storecore.facade.media.ImageFacade;
 import org.junit.Test;
